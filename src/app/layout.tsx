@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
+import { ConfigProvider } from "antd";
 import Header from "../component/layout/Header";
 import Footer from "../component/layout/Footer";
 import Head from "next/head";
+import theme from "./theme/theme";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -25,7 +27,7 @@ export default function RootLayout({
       </Head>
       <body>
         <Header />
-        <div className="">{children}</div>
+        <ConfigProvider theme={theme.dark}>{children}</ConfigProvider>
         <Footer />
       </body>
     </html>
