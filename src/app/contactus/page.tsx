@@ -1,9 +1,12 @@
-import React from 'react'
+"use client";
+
+import ContactForm from "@/component/ContactUs/Contact";
+import React from "react";
 
 function page() {
-  return (
-    <div>con    tactus</div>
-  )
+  return <div>
+    <ContactForm/>
+  </div>;
 }
 
-export default page
+export default page;

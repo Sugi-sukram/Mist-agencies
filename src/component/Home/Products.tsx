@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 // import expand from "@/asset/school/expand.svg";
-import { productscard } from "../../config/product-config";
+import { productscard } from "../../config/Product-config";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 
 const Products: React.FC<any> = () => {

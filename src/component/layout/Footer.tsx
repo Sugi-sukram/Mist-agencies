@@ -1,11 +1,16 @@
+"use client";
+
 import homePageImage from "../../assets/footerBG.png";
 import appIcon from "../../assets/appIcon.png";
 import Image from "next/image";
-import { IoLocationOutline } from "react-icons/io5";
 import { BiPhoneCall } from "react-icons/bi";
 import { TfiEmail } from "react-icons/tfi";
+import { ContactDetails } from "@/config/Contact-details";
+import { useRouter } from "next/navigation";
+import { MdOutlineEmail, MdOutlineLocationOn } from "react-icons/md";
 
 const Footer = () => {
+  const navigator = useRouter();
   return (
     <footer
       className="text-center py-20 relative bg-cover bg-center h-[700px] bg-no-repeat text-white flex flex-col justify-center pr-32 "
@@ -19,11 +24,13 @@ const Footer = () => {
             src={appIcon}
             alt="Mist Agencies Logo"
             width={100}
-            height={100} 
+            height={100}
           />
         </div>
         <div className=" text-left mt-5">
-          <h3 className="text-5xl font-family: ui-sans-serif, sans-serif,">MIST AGENCIES</h3>
+          <h3 className="text-5xl font-family: ui-sans-serif, sans-serif,">
+            MIST AGENCIES
+          </h3>
           <p className="text-2xl">Implement for Better Future</p>
         </div>
       </div>
@@ -32,44 +39,77 @@ const Footer = () => {
         <div className="w-[200px]">
           <ul className="text-left text-white text-1xl">
             <li className="mt-3">
-              <a href="#about" className="hover:underline ">
+              <p
+                onClick={() => navigator.push("/")}
+                className="hover:underline "
+              >
                 About Us
-              </a>
+              </p>
             </li>
             <li className="mt-3">
-              <a href="#products" className="hover:underline">
+              <p
+                onClick={() => navigator.push("/aboutus")}
+                className="hover:underline"
+              >
                 Product
-              </a>
+              </p>
             </li>
             <li className="mt-3">
-              <a href="#services" className="hover:underline">
+              <p
+                onClick={() => navigator.push("/products")}
+                className="hover:underline"
+              >
                 Service
-              </a>
+              </p>
             </li>
             <li className="mt-3">
-              <a href="#services" className="hover:underline">
+              <p
+                onClick={() => navigator.push("/services")}
+                className="hover:underline"
+              >
                 Gallery
-              </a>
+              </p>
             </li>
             <li className="mt-3">
-              <a href="#services" className="hover:underline">
+              <p
+                onClick={() => navigator.push("/contactus")}
+                className="hover:underline"
+              >
                 Contact Us
-              </a>
+              </p>
             </li>
           </ul>
         </div>
         <div className="text-left w-[400px]">
-          <div className="flex justify-left items-center row-auto gap-5 mt-3">
-            <IoLocationOutline fill="white" fontSize={60} />
-            <p>No.34, New Balaji Nagar, Kottai Palayam, Coimbatore, TamilNadu 641109</p>
+          <div className="flex justify-start items-start row-auto gap-5 mt-3">
+            <MdOutlineLocationOn
+              color="white"
+              className="font-semibold mt-[-6px]"
+              size={60}
+            />
+            <p className="text-white text-lg leading-snug">
+              {ContactDetails.address}
+            </p>
           </div>
-          <div className="flex justify-left items-center row-auto gap-5 mt-3">
+
+          <div className="flex justify-start items-start row-auto gap-5 mt-3">
             <BiPhoneCall fill="white" fontSize={30} />
-            <p>+91 99521 68989 / 90033 42551</p>
+            <p className="text-white text-lg leading-snug">
+              +91{" "}
+              {ContactDetails.phoneNumber.map((pn, int) => (
+                <>
+                  {pn}
+                  {int !== ContactDetails.phoneNumber.length - 1 && " / "}
+                </>
+              ))}
+            </p>
           </div>
-          <div className="flex justify-left items-center row-auto gap-5 mt-3">
-            <TfiEmail fill="white" fontSize={25} />
-            <p>mistwateragencies@gmail.com</p>
+
+          <div className="flex justify-start items-start row-auto gap-5 mt-3">
+            <MdOutlineEmail fill="white" fontSize={25} />
+            <p className="text-white text-lg leading-snug">
+              mistwateragencies@gmail.com
+            </p>
           </div>
         </div>
       </div>
