@@ -1,0 +1,82 @@
+{
+  // Specifies the default formatter for different languages
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // Controls the font size in the editor
+  "editor.fontSize": 14,
+
+  // Enable word wrap in the editor
+  "editor.wordWrap": "on",
+
+  // Controls the number of spaces a tab is equal to
+  "editor.tabSize": 4,
+
+  // Controls whether the editor should insert spaces when pressing Tab
+  "editor.insertSpaces": true,
+
+  // Controls whether the editor should automatically format on save
+  "editor.formatOnSave": true,
+
+  // Enable bracket pair colorization
+  "editor.bracketPairColorization.enabled": true,
+
+  // Control whether the editor should render whitespace characters
+  "editor.renderWhitespace": "boundary",
+
+  // Enable or disable the code lens feature
+  "editor.codeLens": true,
+
+  // Set the default language for new files
+  "files.defaultLanguage": "javascript",
+
+  // Define the files to exclude from searching
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.git": true
+  },
+
+  // Set up terminal environment variables
+  "terminal.integrated.env.linux": {
+    "MY_ENV_VAR": "value"
+  },
+  "terminal.integrated.env.windows": {
+    "MY_ENV_VAR": "value"
+  },
+
+  // Configure the path for linting
+  "eslint.nodePath": "./node_modules",
+
+  // Configure the path for Prettier
+  "prettier.prettierPath": "./node_modules/.bin/prettier",
+
+  // Control the behavior of the file explorer
+  "explorer.sortOrder": "type",
+
+  // Control how many editor tabs to keep open
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.value": 10,
+  "workbench.colorCustomizartions": {
+    "activityBar.background": "#212121",
+    "editor.foreground": "#ffffff",
+    "editor.lineNumberColor": "#ffffff",
+    "editor.selectionBackground": "#4CAF50",
+    "editor.inactiveSelectionBackground": "#4CAF50",
+    "editor.findMatchBackground": "#4CAF50",
+    "editor.findMatchBorder": "#4CAF50",
+    "editor.hoverHighlightBackground": "#4CAF50",
+    "editor.currentSelectionHighlightBackground": "#4CAF50",
+    "editor.selectionHighlightBorder": "#4CAF50",
+    "editor.wordHighlightBackground": "#4CAF50",
+    "editor.wordHighlightBorder": "#4CAF50",
+    "editor.wordHighlightStrongBackground": "#4CAF50",
+    "editor.wordHighlightStrongBorder": "#4CAF50",
+    "editor.wordHighlightStrongForeground": "#ffffff",
+    "editor.inactiveSelectionHighlightBorder": "#4CAF50",
+    "editor.inactiveFindMatchBorder": "#4CAF50",
+    "editor.inactiveWordHighlightBorder": "#4CAF50",
+    "editor.inactiveWordHighlightStrongBorder": "#4CAF50"
+  },
+
+  // Set the auto save delay in milliseconds
+  "files.autoSaveDelay": 1000
+}
