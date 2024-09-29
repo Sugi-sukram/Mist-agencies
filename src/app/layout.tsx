@@ -5,7 +5,7 @@ import { ConfigProvider } from "antd";
 import Header from "../component/layout/Header";
 import Footer from "../component/layout/Footer";
 import Head from "next/head";
-import theme from "./theme/theme";
+import theme from "@/theme/theme";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

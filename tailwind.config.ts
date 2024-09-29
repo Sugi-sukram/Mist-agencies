@@ -10,11 +10,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        limeGreen: "#94c244", // Custom color
-        bluecolor: "#3a82d7", // Custom color
-        lightblueBG: "#d6e4ef", // Custom color
-        drackBlue: "#001055", // Custom color
-        lightgreen: "#8dbf3c", // Custom color
+        limeGreen: "#94c244",
+        bluecolor: "#3a82d7",
+        lightblueBG: "#d6e4ef",
+        drackBlue: "#001055",
+        textBlue: "#3A82D7",
+        titles: "#082763",
+        lightgreen: "#94C245",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
