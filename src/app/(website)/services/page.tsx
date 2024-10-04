@@ -7,7 +7,7 @@ function page() {
   }, []);
   const getService = async () => {
     try {
-      const res = await fetch("/api/user/sample"); // Ensure the route matches
+      const res = await fetch("/api/user"); // Ensure the route matches
       if (!res.ok) throw new Error("Failed to fetch");
       const data = await res.json();
       console.log(res, data);

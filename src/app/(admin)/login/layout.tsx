@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "../styles/globals.css";
+import "@/styles/globals.css";
 import { ConfigProvider } from "antd";
-import Header from "../component/layout/Header";
-import Footer from "../component/layout/Footer";
 import Head from "next/head";
 import theme from "@/theme/theme";
-import Appicon from "../assets/appIcon.png";
+import Appicon from "@/assets/appIcon.png";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -60,9 +58,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>
-        <Header />
         <ConfigProvider theme={theme.dark}>{children}</ConfigProvider>
-        <Footer />
       </body>
     </html>
   );

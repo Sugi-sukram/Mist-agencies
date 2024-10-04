@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import appIcon from "../../assets/appIcon.png"; // Correct way to import an image
+import appIcon from "@/assets/appIcon.png"; 
 import { useRouter } from "next/navigation";
 
 const Header = () => {
   const navicate = useRouter();
 
-  return (
+  return ( 
     <header className="bg-gradient-to-l to-white from-lightblueBG shadow-md ">
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
         <div className="flex items-center space-x-4">
