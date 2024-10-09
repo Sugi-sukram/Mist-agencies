@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Form,
   Input,
@@ -17,21 +17,43 @@ import appIcon from "@/assets/appIcon.png";
 const { Title } = Typography;
 
 const LoginPage: React.FC = () => {
+  const [form] = Form.useForm();
   const onFinish = (values: any) => {
-    message.success("Login Successful!");
-    console.log("Received values of form: ", values);
+    // If "Remember Me" is checked, store username and password in localStorage
+    if (values.remember) {
+      localStorage.setItem('username', values.username);
+      localStorage.setItem('password', values.password); // Be careful with storing passwords!
+    } else {
+      sessionStorage.setItem('username', values.username);
+      sessionStorage.setItem('password', values.password); // Only persist for the session
+    }
+
+    message.success('Login Successful!');
+    console.log('Received values of form: ', values);
   };
+  useEffect(() => {
+    // Check localStorage for stored username/password if "Remember Me" was used
+    const storedUsername = localStorage.getItem('username');
+    const storedPassword = localStorage.getItem('password');
+
+    if (storedUsername && storedPassword) {
+      form.setFieldsValue({
+        username: storedUsername,
+        password: storedPassword,
+        remember: true, // Automatically check the "Remember Me" box
+      });
+    }
+  }, [form]);
 
   return (
     <section
-      className="bg-blue-100 text-center py-20 relative bg-cover bg-center h-screen bg-no-repeat "
+      className="bg-blue-100 text-center flex align-middle justify-center relative bg-cover bg-center h-screen bg-no-repeat "
       style={{
         backgroundImage: `url(${homePageImage.src})`,
       }}
     >
       <div className="flex justify-center items-center bg-transparent">
-    
-        <div className="bg-white p-10 rounded-lg shadow-lg  max-w-md text-center">
+        <div className="bg-white p-6 rounded-lg shadow-lg  max-w-md text-center">
           <div className="mb-8 text-center">
             <div className="flex justify-center items-center mb-4">
               <Image
@@ -41,15 +63,16 @@ const LoginPage: React.FC = () => {
                 height={80}
               />
             </div>
-            <Title level={1} className="text-3xl font-bold">
+            <Title level={1} className=" font-bold">
               Mist Agencies
             </Title>
             <Title level={4} className="mt-2 font-semibold">
               Welcome Back!
             </Title>
-            <p>Sign in to your account</p>
+            <p>Log in to your account</p>
           </div>
           <Form
+           form={form}
             name="login"
             className="login-form"
             initialValues={{ remember: true }}
@@ -79,14 +102,14 @@ const LoginPage: React.FC = () => {
                 className="py-2 px-4 border border-gray-300 rounded-md w-full"
               />
             </Form.Item>
-            {/* <Form.Item className="flex justify-between items-center">
+            <Form.Item className="flex justify-between items-center">
               <Form.Item name="remember" valuePropName="checked" noStyle>
                 <Checkbox>Remember me</Checkbox>
               </Form.Item>
               <a className="text-blue-600 hover:underline" href="">
                 Forgot password?
               </a>
-            </Form.Item> */}
+            </Form.Item>
             <Form.Item>
               <Button
                 type="primary"
