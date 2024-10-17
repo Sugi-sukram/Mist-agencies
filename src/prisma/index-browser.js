@@ -122,52 +122,80 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.PostScalarFieldEnum = {
+exports.Prisma.AdminScalarFieldEnum = {
   id: 'id',
-  title: 'title',
-  content: 'content',
-  published: 'published',
-  authorId: 'authorId'
+  name: 'name',
+  email: 'email',
+  mobile: 'mobile',
+  isActive: 'isActive',
+  isProductOwner: 'isProductOwner',
+  address: 'address',
+  pincode: 'pincode',
+  city: 'city',
+  state: 'state',
+  country: 'country',
+  lastLogin: 'lastLogin',
+  image: 'image',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.AccountScalarFieldEnum = {
+exports.Prisma.ProductsScalarFieldEnum = {
   id: 'id',
-  userId: 'userId',
-  type: 'type',
-  provider: 'provider',
-  providerAccountId: 'providerAccountId',
-  refresh_token: 'refresh_token',
-  access_token: 'access_token',
-  expires_at: 'expires_at',
-  token_type: 'token_type',
-  scope: 'scope',
-  id_token: 'id_token',
-  session_state: 'session_state',
-  oauth_token_secret: 'oauth_token_secret',
-  oauth_token: 'oauth_token'
+  name: 'name',
+  unit: 'unit',
+  volume: 'volume',
+  packSize: 'packSize',
+  originalPrice: 'originalPrice',
+  discountPrice: 'discountPrice',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.OrdersScalarFieldEnum = {
+  id: 'id',
+  orderId: 'orderId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.OrderItemScalarFieldEnum = {
+  id: 'id',
+  orderId: 'orderId',
+  productId: 'productId',
+  quantity: 'quantity'
+};
+
+exports.Prisma.ContactRequestsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  mobile: 'mobile',
+  email: 'email',
+  packingType: 'packingType',
+  units: 'units',
+  Venue: 'Venue',
+  address: 'address',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SessionScalarFieldEnum = {
   id: 'id',
   sessionToken: 'sessionToken',
   userId: 'userId',
-  expires: 'expires'
-};
-
-exports.Prisma.UserScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  email: 'email',
-  emailVerified: 'emailVerified',
-  image: 'image',
+  expires: 'expires',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.VerificationTokenScalarFieldEnum = {
-  identifier: 'identifier',
-  token: 'token',
-  expires: 'expires'
+exports.Prisma.FeedbackScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  rating: 'rating',
+  feedback: 'feedback',
+  productId: 'productId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -184,14 +212,19 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-
+exports.unit = exports.$Enums.unit = {
+  KG: 'KG',
+  ML: 'ML'
+};
 
 exports.Prisma.ModelName = {
-  Post: 'Post',
-  Account: 'Account',
+  Admin: 'Admin',
+  Products: 'Products',
+  Orders: 'Orders',
+  OrderItem: 'OrderItem',
+  ContactRequests: 'ContactRequests',
   Session: 'Session',
-  User: 'User',
-  VerificationToken: 'VerificationToken'
+  Feedback: 'Feedback'
 };
 
 /**
