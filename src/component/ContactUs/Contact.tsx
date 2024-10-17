@@ -54,12 +54,16 @@ const ContactForm = () => {
               ))}
             </p>
           </div>
-          <p className="mt-2 text-2xl">GSTIN: {ContactDetails.GSTIN}</p>
+          <p className="mt-2 text-2xl">
+            <b>GSTIN</b > : {ContactDetails.GSTIN}
+          </p>
         </div>
 
         {/* Contact Form Section */}
         <div className="w-full md:w-1/2">
-          <h2 className="text-lg font-semibold mb-4">Get In Touch With Us</h2>
+          <h2 className="text-lg font-semibold mb-4 text-[#3A82D7]">
+            Get In Touch With Us
+          </h2>
           <Form layout="vertical" onFinish={onFinish} className="space-y-4">
             <Form.Item
               label="Full Name"
@@ -68,7 +72,7 @@ const ContactForm = () => {
                 { required: true, message: "Please enter your full name!" },
               ]}
             >
-              <Input placeholder="Full Name*" />
+              <Input placeholder="Full Name*" className="bg-[#E2EDFA]" />
             </Form.Item>
 
             <Form.Item
@@ -78,10 +82,16 @@ const ContactForm = () => {
                 {
                   required: true,
                   message: "Please enter your contact number!",
+                  // type: "number",
                 },
               ]}
             >
-              <Input placeholder="Contact Number*" />
+              <Input
+                placeholder="Contact Number*"
+                maxLength={10}
+                className="bg-[#E2EDFA]"
+                type="number"
+              />
             </Form.Item>
 
             <Form.Item
@@ -95,7 +105,7 @@ const ContactForm = () => {
                 },
               ]}
             >
-              <Input placeholder="Email Address*" />
+              <Input placeholder="Email Address*" className="bg-[#E2EDFA]" />
             </Form.Item>
 
             <Form.Item
@@ -111,19 +121,6 @@ const ContactForm = () => {
                 <Option value="100 Litre">100 Litre</Option>
               </Select>
             </Form.Item>
-
-            <Form.Item
-              label="Choose"
-              name="choose"
-              rules={[{ required: true, message: "Please select an option!" }]}
-            >
-              <Select placeholder="Choose*">
-                <Option value="Marriage Hall">Marriage Hall</Option>
-                <Option value="Party">Party</Option>
-                <Option value="Meeting">Meeting</Option>
-              </Select>
-            </Form.Item>
-
             <Form.Item
               label="Number of Units Required"
               name="units"
@@ -134,10 +131,28 @@ const ContactForm = () => {
                 },
               ]}
             >
-              <Select placeholder="Number of Units Required*">
+              <Select
+                placeholder="Number of Units Required*"
+               
+              >
                 <Option value="1 - 5">1 - 5</Option>
                 <Option value="5 - 10">5 - 10</Option>
                 <Option value="10 - 15">10 - 15</Option>
+              </Select>
+            </Form.Item>
+
+            <Form.Item
+              label="Choose venue"
+              name="choose"
+              rules={[{ required: true, message: "Please select an option!" }]}
+            >
+              <Select placeholder="Choose*" >
+                <Option value="Marriage Hall" >
+                  Marriage Hall
+                </Option>
+                <Option value="Party">Party</Option>
+                <Option value="Meeting">Meeting</Option>
+                <Option value="Meeting">Office</Option>
               </Select>
             </Form.Item>
 
@@ -151,24 +166,23 @@ const ContactForm = () => {
                 },
               ]}
             >
-              <Input.TextArea placeholder="Enter Your Full Address" />
+              <Input.TextArea
+                placeholder="Enter Your Full Address"
+                className="bg-[#E2EDFA]"
+              />
             </Form.Item>
 
             <Form.Item>
-              <Button type="primary" htmlType="submit" className="w-full">
+              <Button
+                type="primary"
+                htmlType="submit"
+                className=" bg-[#94C245] w-[100px]"
+              >
                 SUBMIT
               </Button>
             </Form.Item>
           </Form>
         </div>
-
-        {/* Map Section */}
-        {/* <div className="w-full md:w-1/2">
-        <h2 className="text-lg font-semibold mb-4">Our Location</h2>
-      </div> */}
-      </div>
-      <div className="w-full h-[500px]">
-        <MapComponent />
       </div>
     </>
   );

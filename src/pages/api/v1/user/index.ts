@@ -5,7 +5,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   // You can handle different HTTP methods here
   if (req.method === "GET") {
-    let users = await prisma.user.findMany({});
+    let users = await prisma.admin.findMany({});
 
     res.status(200).json({ users, message: "Hello, World!" });
   } else {

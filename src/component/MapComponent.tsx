@@ -6,6 +6,7 @@ import View from "ol/View";
 import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM";
 import { fromLonLat } from "ol/proj";
+import { ContactDetails } from "@/config/Contact-details";
 
 const MapComponent = () => {
   const mapRef = useRef<any>(null); // Reference for the map container
@@ -28,7 +29,22 @@ const MapComponent = () => {
     return () => map.setTarget(undefined); // Cleanup on unmount
   }, []);
 
-  return <div ref={mapRef} style={{ height: "400px", width: "100%" }} />;
+  return (
+    <div
+      className=" flex justify-center flex-row items-center "
+      style={{ height: "auto", borderRadius: "30px" }}
+    >
+      <div
+        className="rounded overflow-hidden"
+        style={{ height: "300px", width: "70%", borderRadius: "30px" }}
+        onClick={(e) => {
+          e.stopPropagation();
+          window.open(ContactDetails.googleLocationUrl, "_blank");
+        }}
+        ref={mapRef}
+      ></div>
+    </div>
+  );
 };
 
 export default MapComponent;
