@@ -172,7 +172,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\dotwo\\OneDrive\\Documents\\sanjay\\projects\\Mist-agencies\\src\\prisma",
+      "value": "D:\\Personal\\Projects\\Mist-agencies\\src\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -188,7 +188,7 @@ const config = {
     "previewFeatures": [
       "omitApi"
     ],
-    "sourceFilePath": "C:\\Users\\dotwo\\OneDrive\\Documents\\sanjay\\projects\\Mist-agencies\\src\\prisma\\schema.prisma",
+    "sourceFilePath": "D:\\Personal\\Projects\\Mist-agencies\\src\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

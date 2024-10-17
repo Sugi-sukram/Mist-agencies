@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   keywords:
     "mineral water, premium water, healthy water, refreshing drink, MIST AGENCIES, bottled water,MIST",
   // author: "MIST AGENCIES",
-  viewport: "width=device-width, initial-scale=1.0",
   robots: "index, follow", // Allows search engine crawlers to index the page
   icons: {
     icon: Appicon.src,
@@ -43,6 +42,12 @@ export const metadata: Metadata = {
       "Discover the fresh taste of MIST AGENCIES' mineral water, perfect for hydration and health.",
     // image: Appicon.src, // Replace with your Twitter card image URL
   },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
