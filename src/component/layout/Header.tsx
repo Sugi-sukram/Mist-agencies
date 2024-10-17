@@ -1,13 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import appIcon from "@/assets/appIcon.png"; 
-import { useRouter } from "next/navigation";
+import appIcon from "@/assets/appIcon.png";
+import { useRouter, usePathname } from "next/navigation";
 
 const Header = () => {
-  const navicate = useRouter();
+  const router = useRouter();
+  const pathname = usePathname(); // Get the current path
 
-  return ( 
+  const menuItems = [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/aboutus" },
+    { name: "Products", path: "/products" },
+    { name: "Services", path: "/services" },
+    { name: "Contact Us", path: "/contactus" },
+  ];
+
+  return (
     <header className="bg-gradient-to-l to-white from-lightblueBG shadow-md ">
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
         <div className="flex items-center space-x-4">
@@ -21,36 +30,24 @@ const Header = () => {
           <h1 className="text-2xl font-bold text-gray-800">MIST AGENCIES</h1>
         </div>
         <nav className="flex space-x-6">
-          <p
-            className=" text-drackBlue text-xl font-semibold hover:text-blue-500 cursor-pointer"
-            onClick={() => navicate.push("/")}
-          >
-            Home
-          </p>
-          <p
-            className="text-drackBlue text-xl font-semibold hover:text-blue-500 cursor-pointer"
-            onClick={() => navicate.push("/aboutus")}
-          >
-            About Us
-          </p>
-          <p
-            className="text-drackBlue text-xl font-semibold hover:text-blue-500 cursor-pointer"
-            onClick={() => navicate.push("/products")}
-          >
-            Products
-          </p>
-          <p
-            className="text-drackBlue text-xl font-semibold hover:text-blue-500 cursor-pointer"
-            onClick={() => navicate.push("/services")}
-          >
-            Services
-          </p>
-          <p
-            className="text-drackBlue text-xl font-semibold hover:text-blue-500 cursor-pointer"
-            onClick={() => navicate.push("/contactus")}
-          >
-            Contact Us
-          </p>
+          {menuItems.map((item) => (
+            <div key={item.path} className="relative group">
+              <p
+                className={`text-drackBlue text-xl font-semibold cursor-pointer hover:text-blue-500 transition-colors duration-300 ${
+                  pathname === item.path ? "text-[rgb(53,140,216)]" : ""
+                }`}
+                onClick={() => router.push(item.path)}
+              >
+                {item.name}
+              </p>
+              {/* Animated underline */}
+              <span
+                className={`absolute left-0 bottom-0 w-full h-[2px] bg-blue-500 transition-transform duration-300 ${
+                  pathname === item.path ? "scale-x-100" : "scale-x-0"
+                } group-hover:scale-x-100`}
+              />
+            </div>
+          ))}
         </nav>
       </div>
     </header>

@@ -13,9 +13,10 @@ const theme: Theme = {
         colorItemTextSelected: "white",
       },
       Select: {
-        colorBorder: "transpanrent",
+        colorBorder: "#e5e7eb",
         colorPrimaryHover: "#d9d9d9",
-        colorPrimary: "#d9d9d9",
+        selectorBg: "#E2EDFA",
+        colorPrimary: "#E2EDFA",
         controlOutline: "white",
         optionSelectedBg: "rgba(217, 217, 217, 0.38)",
       },
