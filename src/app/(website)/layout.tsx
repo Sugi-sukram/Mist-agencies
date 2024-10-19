@@ -7,6 +7,7 @@ import theme from "@/theme/theme";
 import Appicon from "@/assets/appIcon.png";
 import Header from "@/component/layout/Header";
 import Footer from "@/component/layout/Footer";
+import SocialMediaHeader from "@/component/layout/SocialMediaHeader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
 
 // Correctly define the viewport export
 export const viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
   maximumScale: 1,
 };
@@ -66,6 +67,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>
+        <SocialMediaHeader />
         <Header />
         <ConfigProvider theme={theme.dark}>{children}</ConfigProvider>
         <Footer />

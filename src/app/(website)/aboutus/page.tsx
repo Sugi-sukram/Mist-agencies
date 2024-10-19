@@ -1,9 +1,14 @@
-import React from 'react'
+import AboutSection from "@/component/AboutUs/AboutSection";
+import SubHeader from "@/component/common/SubHeader";
+import React from "react";
 
 function page() {
   return (
-    <div>aboutus</div>
-  )
+    <div>
+      <SubHeader title="About us" />
+      <AboutSection />
+    </div>
+  );
 }
 
-export default page
+export default page;

@@ -206,7 +206,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\Personal\\Projects\\Mist-agencies\\src\\prisma",
+      "value": "D:\\project-buji ma\\Mist-agencies\\src\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -222,7 +222,7 @@ const config = {
     "previewFeatures": [
       "omitApi"
     ],
-    "sourceFilePath": "D:\\Personal\\Projects\\Mist-agencies\\src\\prisma\\schema.prisma",
+    "sourceFilePath": "D:\\project-buji ma\\Mist-agencies\\src\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -236,6 +236,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
