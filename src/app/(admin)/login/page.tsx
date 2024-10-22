@@ -14,22 +14,28 @@ import homePageImage from "@/assets/home-page_02-10.jpg";
 
 import Image from "next/image";
 import appIcon from "@/assets/appIcon.png";
+import axiosPrivate from "@/utils/axios";
 const { Title } = Typography;
 
 const LoginPage: React.FC = () => {
   const [form] = Form.useForm();
-  const onFinish = (values: any) => {
-    // If "Remember Me" is checked, store username and password in localStorage
+  const onFinish = async(values: any) => {
     if (values.remember) {
       localStorage.setItem('username', values.username);
-      localStorage.setItem('password', values.password); // Be careful with storing passwords!
+      localStorage.setItem('password', values.password); 
     } else {
-      sessionStorage.setItem('username', values.username);
-      sessionStorage.setItem('password', values.password); // Only persist for the session
+      sessionStorage.setItem('username', "");
+      sessionStorage.setItem('password', ""); 
     }
-
-    message.success('Login Successful!');
-    console.log('Received values of form: ', values);
+    const { username, password } = values;
+    const res = await axiosPrivate("api/v1/login", {
+      method: "post",
+      data: { username, password },
+    });
+    if (res && res.data && res.data.status) {
+      message.success(res.data.message);
+      form.resetFields();
+    }
   };
   useEffect(() => {
     // Check localStorage for stored username/password if "Remember Me" was used
