@@ -10,7 +10,7 @@ export interface AuthenticatedRequest extends NextApiRequest {
 }
 
 // List of paths that don't require authentication
-const ignoredPaths = ["/api/v1/login"];
+const ignoredPaths = ["/api/v1/login", ];
 
 export const authenticateJWT = (
   handler: (req: AuthenticatedRequest | NextApiRequest, res: NextApiResponse) => Promise<void> | void

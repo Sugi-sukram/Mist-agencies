@@ -2,15 +2,13 @@ import prisma from "@/loaders/prisma";
 import type { NextApiRequest, NextApiResponse } from "next";
 import {
   NotFoundError,
-  InternalServerError,
-  HttpError,
   MethodNotAllowedError,
 } from "@/utils/errors";
 import {
   AuthenticatedRequest,
   authenticateJWT,
 } from "@/lib/middleware/jwtMiddleware";
-import { contactRequestValidater, productRequestValidater } from "@/helpers/validaters/calibarate";
+import { productRequestValidater } from "@/helpers/validaters/calibarate";
 import { handleValidationError } from "@/utils/errorHandler";
 
 async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
@@ -31,10 +29,7 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
     }
   } else if (req.method === "POST") {
     try {
-      console.log(req.body);
      await productRequestValidater(req, res);
-    //  await contactRequestValidater(req, res);
-      
       const body = req.body;
 
       const product = await prisma.products.create({
