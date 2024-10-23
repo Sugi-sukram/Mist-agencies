@@ -10,55 +10,40 @@ import {
 } from "react-icons/fa";
 
 const SocialMediaHeader = () => {
+  const socialIcons = [
+    { icon: FaFacebookF, color: "blue-600" },
+    { icon: FaInstagram, color: "pink-500" },
+    { icon: FaLinkedinIn, color: "blue-700" },
+    { icon: FaYoutube, color: "red-600" },
+    { icon: FaWhatsapp, color: "green-500" },
+  ];
+
   return (
     <header className="bg-white py-3 border-b border-gray-200">
-      <div className="container mx-auto flex justify-between items-center px-7 h-8">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-4 md:px-7 space-y-2 md:space-y-0">
         {/* Left Section */}
-        <div className="flex items-center space-x-4">
-          {/* Email */}
+        <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
           <div className="flex items-center space-x-2">
             <FaEnvelope className="text-blue-500" />
-            <span>mistwateragencies@gmail.com</span>
+            <span className="text-sm md:text-base">mistwateragencies@gmail.com</span>
           </div>
-          {/* Phone Numbers */}
           <div className="flex items-center space-x-2">
             <FaPhoneAlt className="text-green-500" />
-            <span>+91 99521 88999 | 90033 42551</span>
+            <span className="text-sm md:text-base">+91 99521 88999 | 90033 42551</span>
           </div>
         </div>
 
         {/* Right Section - Social Media Icons */}
-        <div className="flex items-center space-x-4">
-          <a
-            href="#"
-            className="text-gray-600 border border-gray-400 rounded-full p-2 hover:text-blue-600 hover:border-blue-600"
-          >
-            <FaFacebookF className="w-5 h-5" />
-          </a>
-          <a
-            href="#"
-            className="text-gray-600 border border-gray-400 rounded-full p-2 hover:text-pink-500 hover:border-pink-500"
-          >
-            <FaInstagram className="w-5 h-5" />
-          </a>
-          <a
-            href="#"
-            className="text-gray-600 border border-gray-400 rounded-full p-2 hover:text-blue-700 hover:border-blue-700"
-          >
-            <FaLinkedinIn className="w-5 h-5" />
-          </a>
-          <a
-            href="#"
-            className="text-gray-600 border border-gray-400 rounded-full p-2 hover:text-red-600 hover:border-red-600"
-          >
-            <FaYoutube className="w-5 h-5" />
-          </a>
-          <a
-            href="#"
-            className="text-gray-600 border border-gray-400 rounded-full p-2 hover:text-green-500 hover:border-green-500"
-          >
-            <FaWhatsapp className="w-5 h-5" />
-          </a>
+        <div className="flex items-center space-x-3">
+          {socialIcons.map(({ icon: Icon, color }, idx) => (
+            <a
+              key={idx}
+              href="#"
+              className={`text-gray-600 border border-gray-400 rounded-full p-2 hover:text-${color} hover:border-${color}`}
+            >
+              <Icon className="w-4 h-4 md:w-5 md:h-5" />
+            </a>
+          ))}
         </div>
       </div>
     </header>

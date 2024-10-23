@@ -67,7 +67,6 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>
-        <SocialMediaHeader />
         <Header />
         <ConfigProvider theme={theme.dark}>{children}</ConfigProvider>
         <Footer />
