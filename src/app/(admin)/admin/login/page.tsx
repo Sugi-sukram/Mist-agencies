@@ -15,9 +15,14 @@ import homePageImage from "@/assets/home-page_02-10.jpg";
 import Image from "next/image";
 import appIcon from "@/assets/appIcon.png";
 import axiosPrivate from "@/utils/axios";
+import { useRouter } from "next/navigation";
+import Cookies from "universal-cookie";
 const { Title } = Typography;
+const cookieStore = new Cookies();
+
 
 const LoginPage: React.FC = () => {
+  const router = useRouter();
   const [form] = Form.useForm();
   const onFinish = async(values: any) => {
     if (values.remember) {
@@ -28,25 +33,33 @@ const LoginPage: React.FC = () => {
       sessionStorage.setItem('password', ""); 
     }
     const { username, password } = values;
-    const res = await axiosPrivate("api/v1/login", {
+    const res = await axiosPrivate("/api/v1/login", {
       method: "post",
       data: { username, password },
     });
     if (res && res.data && res.data.status) {
       message.success(res.data.message);
       form.resetFields();
+      cookieStore.set("token", res.data.token, {
+        path: "/",
+      });
+      cookieStore.set("pk", res.data.publicKey, {
+        path: "/",
+      });
+      cookieStore.set("userId", res.data.user.id, {
+        path: "/",
+      });
+      router.push("/admin/app/dashboard");
     }
   };
   useEffect(() => {
-    // Check localStorage for stored username/password if "Remember Me" was used
     const storedUsername = localStorage.getItem('username');
     const storedPassword = localStorage.getItem('password');
-
     if (storedUsername && storedPassword) {
       form.setFieldsValue({
         username: storedUsername,
         password: storedPassword,
-        remember: true, // Automatically check the "Remember Me" box
+        remember: true, 
       });
     }
   }, [form]);

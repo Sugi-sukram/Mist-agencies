@@ -127,6 +127,7 @@ exports.Prisma.AdminScalarFieldEnum = {
   name: 'name',
   email: 'email',
   mobile: 'mobile',
+  profileURL: 'profileURL',
   isActive: 'isActive',
   isProductOwner: 'isProductOwner',
   address: 'address',

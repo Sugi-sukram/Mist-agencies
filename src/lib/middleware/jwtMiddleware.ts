@@ -1,29 +1,48 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import jwt, { JwtPayload } from "jsonwebtoken";
+import { UnauthorizedError, InternalServerError } from "@/utils/errors";
+import config from "@/config";
 
-const secret = process.env.JWT_SECRET || "your_secret_key"; 
+const secret = config.keys.private_key || "your_secret_key";
 
-interface AuthenticatedRequest extends NextApiRequest {
-  user?: JwtPayload; 
+export interface AuthenticatedRequest extends NextApiRequest {
+  user?: JwtPayload;
 }
 
-export const authenticateJWT = (handler: (req: AuthenticatedRequest, res: NextApiResponse) => Promise<void> | void) => {
+// List of paths that don't require authentication
+const ignoredPaths = ["/api/v1/login"];
+
+export const authenticateJWT = (
+  handler: (req: AuthenticatedRequest | NextApiRequest, res: NextApiResponse) => Promise<void> | void
+) => {
   return async (req: NextApiRequest, res: NextApiResponse) => {
-    const token = req.headers.authorization?.split(" ")[1];
-    if (!token) {
-      return res.status(401).json({ message: "Unauthorized" });
+    // Bypass authentication for specific paths
+    if (ignoredPaths.includes(req.url || "")) {
+      return handler(req as NextApiRequest, res);
     }
+
+    const token = req.headers.authorization?.split(" ")[1];
+
+    if (!token) {
+      return new UnauthorizedError("Token is missing").handleResponse(res);
+    }
+
     try {
-      const decoded = jwt.verify(token, secret) as JwtPayload; 
-      (req as AuthenticatedRequest).user = decoded; 
-      return handler(req as AuthenticatedRequest, res); 
-    } catch (error) {
-      return res.status(401).json({ message: "Invalid token" });
+      // Verify the token
+      const decoded = jwt.verify(token, secret) as JwtPayload;
+      // Attach the decoded token to the request
+      (req as AuthenticatedRequest).user = decoded;
+      // Proceed with the handler
+      return handler(req as AuthenticatedRequest, res);
+    } catch (error: any) {
+      // Handle token-related errors
+      if (error.name === "TokenExpiredError") {
+        return new UnauthorizedError("Token has expired").handleResponse(res);
+      } else if (error.name === "JsonWebTokenError") {
+        return new UnauthorizedError("Invalid token").handleResponse(res);
+      }
+      // Handle unexpected errors
+      return new InternalServerError("Internal server error during token validation").handleResponse(res);
     }
   };
 };
-
-
-
-
-

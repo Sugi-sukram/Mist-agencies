@@ -111,8 +111,8 @@ const Header = () => {
           placement="right"
           onClose={closeDrawer}
           open={visible}
-          bodyStyle={{ padding: 0 }}
-          width={300} // Adjusted drawer width
+          styles={{body: {padding: 0}}}
+          width={300} 
           closeIcon={null}
           className="drawer-custom" // Custom class for additional styling
         >

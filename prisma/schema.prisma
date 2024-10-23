@@ -19,6 +19,7 @@ model Admin {
   name           String?
   email          String?  @unique
   mobile         String?
+  profileURL     String?
   isActive       Boolean  @default(true)
   isProductOwner Boolean  @default(false)
   address        String?

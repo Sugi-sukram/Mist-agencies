@@ -7,6 +7,11 @@ export const loginValidater = celebrate({
     password: Joi.string().required(),
   }),
 });
+export const paramswithUUid = celebrate({
+  params: Joi.object({
+    id: Joi.string().uuid().required(),
+  }),
+});
 
 export const contactRequestValidater = celebrate({
   body: Joi.object({

@@ -15,3 +15,4 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 }
 
 export default authenticateJWT(handler);
+// export default handler;`

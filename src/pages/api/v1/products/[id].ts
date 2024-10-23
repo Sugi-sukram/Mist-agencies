@@ -13,15 +13,24 @@ import {
 import { contactRequestValidater } from "@/helpers/validaters/calibarate";
 
 async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
+  const { id } = req.query; // Get the product ID from the query
+
+  if (typeof id !== "string") {
+    return res.status(400).json({ message: "Invalid product ID." });
+  }
+
   if (req.method === "GET") {
     try {
-      const products = await prisma.products.findMany({});
-      if (!products.length) throw new NotFoundError("No products found");
+      const product = await prisma.products.findUnique({
+        where: { id },
+      });
+
+      if (!product) throw new NotFoundError("Product not found");
 
       res.status(200).json({
         data: {
-          products,
-          message: "Products fetched successfully.",
+          product,
+          message: "Product fetched successfully.",
           status: true,
         },
       });
@@ -31,23 +40,38 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
       }
       return new InternalServerError("An unexpected error occurred").handleResponse(res);
     }
-  } else if (req.method === "POST") {
+  } else if (req.method === "PUT") {
     try {
-      console.log(req.body);
       await contactRequestValidater(req, res);
-      
       const body = req.body;
 
-      const product = await prisma.products.create({
+      const product = await prisma.products.update({
+        where: { id },
         data: { ...body },
       });
 
       res.status(200).json({
         data: {
           product,
-          message: "Product saved successfully.",
+          message: "Product updated successfully.",
           status: true,
         },
+      });
+    } catch (error) {
+      if (error instanceof HttpError) {
+        return error.handleResponse(res);
+      }
+      return new InternalServerError("An unexpected error occurred").handleResponse(res);
+    }
+  } else if (req.method === "DELETE") {
+    try {
+      await prisma.products.delete({
+        where: { id },
+      });
+
+      res.status(200).json({
+        message: "Product deleted successfully.",
+        status: true,
       });
     } catch (error) {
       if (error instanceof HttpError) {

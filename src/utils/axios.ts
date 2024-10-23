@@ -50,7 +50,7 @@ axiosPrivate.interceptors.response.use(
       let statusCode = error.response.status;
       if (statusCode === 401 && window.location.pathname !== "/") {
         localStorage.clear();
-        window.location.href = "/";
+        window.location.href = "/admin/login";
       } else {
         notification.error({
           message: data.message || codeMessage[statusCode],

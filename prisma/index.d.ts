@@ -1517,6 +1517,7 @@ export namespace Prisma {
     name: string | null
     email: string | null
     mobile: string | null
+    profileURL: string | null
     isActive: boolean | null
     isProductOwner: boolean | null
     address: string | null
@@ -1536,6 +1537,7 @@ export namespace Prisma {
     name: string | null
     email: string | null
     mobile: string | null
+    profileURL: string | null
     isActive: boolean | null
     isProductOwner: boolean | null
     address: string | null
@@ -1555,6 +1557,7 @@ export namespace Prisma {
     name: number
     email: number
     mobile: number
+    profileURL: number
     isActive: number
     isProductOwner: number
     address: number
@@ -1576,6 +1579,7 @@ export namespace Prisma {
     name?: true
     email?: true
     mobile?: true
+    profileURL?: true
     isActive?: true
     isProductOwner?: true
     address?: true
@@ -1595,6 +1599,7 @@ export namespace Prisma {
     name?: true
     email?: true
     mobile?: true
+    profileURL?: true
     isActive?: true
     isProductOwner?: true
     address?: true
@@ -1614,6 +1619,7 @@ export namespace Prisma {
     name?: true
     email?: true
     mobile?: true
+    profileURL?: true
     isActive?: true
     isProductOwner?: true
     address?: true
@@ -1706,6 +1712,7 @@ export namespace Prisma {
     name: string | null
     email: string | null
     mobile: string | null
+    profileURL: string | null
     isActive: boolean
     isProductOwner: boolean
     address: string | null
@@ -1742,6 +1749,7 @@ export namespace Prisma {
     name?: boolean
     email?: boolean
     mobile?: boolean
+    profileURL?: boolean
     isActive?: boolean
     isProductOwner?: boolean
     address?: boolean
@@ -1763,6 +1771,7 @@ export namespace Prisma {
     name?: boolean
     email?: boolean
     mobile?: boolean
+    profileURL?: boolean
     isActive?: boolean
     isProductOwner?: boolean
     address?: boolean
@@ -1782,6 +1791,7 @@ export namespace Prisma {
     name?: boolean
     email?: boolean
     mobile?: boolean
+    profileURL?: boolean
     isActive?: boolean
     isProductOwner?: boolean
     address?: boolean
@@ -1796,7 +1806,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type AdminOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "mobile" | "isActive" | "isProductOwner" | "address" | "pincode" | "password" | "city" | "state" | "country" | "lastLogin" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["admin"]>
+  export type AdminOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "mobile" | "profileURL" | "isActive" | "isProductOwner" | "address" | "pincode" | "password" | "city" | "state" | "country" | "lastLogin" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["admin"]>
   export type AdminInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | Admin$sessionsArgs<ExtArgs>
     _count?: boolean | AdminCountOutputTypeDefaultArgs<ExtArgs>
@@ -1813,6 +1823,7 @@ export namespace Prisma {
       name: string | null
       email: string | null
       mobile: string | null
+      profileURL: string | null
       isActive: boolean
       isProductOwner: boolean
       address: string | null
@@ -2223,6 +2234,7 @@ export namespace Prisma {
     readonly name: FieldRef<"Admin", 'String'>
     readonly email: FieldRef<"Admin", 'String'>
     readonly mobile: FieldRef<"Admin", 'String'>
+    readonly profileURL: FieldRef<"Admin", 'String'>
     readonly isActive: FieldRef<"Admin", 'Boolean'>
     readonly isProductOwner: FieldRef<"Admin", 'Boolean'>
     readonly address: FieldRef<"Admin", 'String'>
@@ -8781,6 +8793,7 @@ export namespace Prisma {
     name: 'name',
     email: 'email',
     mobile: 'mobile',
+    profileURL: 'profileURL',
     isActive: 'isActive',
     isProductOwner: 'isProductOwner',
     address: 'address',
@@ -8992,6 +9005,7 @@ export namespace Prisma {
     name?: StringNullableFilter<"Admin"> | string | null
     email?: StringNullableFilter<"Admin"> | string | null
     mobile?: StringNullableFilter<"Admin"> | string | null
+    profileURL?: StringNullableFilter<"Admin"> | string | null
     isActive?: BoolFilter<"Admin"> | boolean
     isProductOwner?: BoolFilter<"Admin"> | boolean
     address?: StringNullableFilter<"Admin"> | string | null
@@ -9012,6 +9026,7 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
     mobile?: SortOrderInput | SortOrder
+    profileURL?: SortOrderInput | SortOrder
     isActive?: SortOrder
     isProductOwner?: SortOrder
     address?: SortOrderInput | SortOrder
@@ -9035,6 +9050,7 @@ export namespace Prisma {
     NOT?: AdminWhereInput | AdminWhereInput[]
     name?: StringNullableFilter<"Admin"> | string | null
     mobile?: StringNullableFilter<"Admin"> | string | null
+    profileURL?: StringNullableFilter<"Admin"> | string | null
     isActive?: BoolFilter<"Admin"> | boolean
     isProductOwner?: BoolFilter<"Admin"> | boolean
     address?: StringNullableFilter<"Admin"> | string | null
@@ -9055,6 +9071,7 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
     mobile?: SortOrderInput | SortOrder
+    profileURL?: SortOrderInput | SortOrder
     isActive?: SortOrder
     isProductOwner?: SortOrder
     address?: SortOrderInput | SortOrder
@@ -9080,6 +9097,7 @@ export namespace Prisma {
     name?: StringNullableWithAggregatesFilter<"Admin"> | string | null
     email?: StringNullableWithAggregatesFilter<"Admin"> | string | null
     mobile?: StringNullableWithAggregatesFilter<"Admin"> | string | null
+    profileURL?: StringNullableWithAggregatesFilter<"Admin"> | string | null
     isActive?: BoolWithAggregatesFilter<"Admin"> | boolean
     isProductOwner?: BoolWithAggregatesFilter<"Admin"> | boolean
     address?: StringNullableWithAggregatesFilter<"Admin"> | string | null
@@ -9493,6 +9511,7 @@ export namespace Prisma {
     name?: string | null
     email?: string | null
     mobile?: string | null
+    profileURL?: string | null
     isActive?: boolean
     isProductOwner?: boolean
     address?: string | null
@@ -9513,6 +9532,7 @@ export namespace Prisma {
     name?: string | null
     email?: string | null
     mobile?: string | null
+    profileURL?: string | null
     isActive?: boolean
     isProductOwner?: boolean
     address?: string | null
@@ -9533,6 +9553,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     mobile?: NullableStringFieldUpdateOperationsInput | string | null
+    profileURL?: NullableStringFieldUpdateOperationsInput | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
     isProductOwner?: BoolFieldUpdateOperationsInput | boolean
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -9553,6 +9574,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     mobile?: NullableStringFieldUpdateOperationsInput | string | null
+    profileURL?: NullableStringFieldUpdateOperationsInput | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
     isProductOwner?: BoolFieldUpdateOperationsInput | boolean
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -9573,6 +9595,7 @@ export namespace Prisma {
     name?: string | null
     email?: string | null
     mobile?: string | null
+    profileURL?: string | null
     isActive?: boolean
     isProductOwner?: boolean
     address?: string | null
@@ -9592,6 +9615,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     mobile?: NullableStringFieldUpdateOperationsInput | string | null
+    profileURL?: NullableStringFieldUpdateOperationsInput | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
     isProductOwner?: BoolFieldUpdateOperationsInput | boolean
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -9611,6 +9635,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     mobile?: NullableStringFieldUpdateOperationsInput | string | null
+    profileURL?: NullableStringFieldUpdateOperationsInput | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
     isProductOwner?: BoolFieldUpdateOperationsInput | boolean
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -10112,6 +10137,7 @@ export namespace Prisma {
     name?: SortOrder
     email?: SortOrder
     mobile?: SortOrder
+    profileURL?: SortOrder
     isActive?: SortOrder
     isProductOwner?: SortOrder
     address?: SortOrder
@@ -10131,6 +10157,7 @@ export namespace Prisma {
     name?: SortOrder
     email?: SortOrder
     mobile?: SortOrder
+    profileURL?: SortOrder
     isActive?: SortOrder
     isProductOwner?: SortOrder
     address?: SortOrder
@@ -10150,6 +10177,7 @@ export namespace Prisma {
     name?: SortOrder
     email?: SortOrder
     mobile?: SortOrder
+    profileURL?: SortOrder
     isActive?: SortOrder
     isProductOwner?: SortOrder
     address?: SortOrder
@@ -11244,6 +11272,7 @@ export namespace Prisma {
     name?: string | null
     email?: string | null
     mobile?: string | null
+    profileURL?: string | null
     isActive?: boolean
     isProductOwner?: boolean
     address?: string | null
@@ -11263,6 +11292,7 @@ export namespace Prisma {
     name?: string | null
     email?: string | null
     mobile?: string | null
+    profileURL?: string | null
     isActive?: boolean
     isProductOwner?: boolean
     address?: string | null
@@ -11298,6 +11328,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     mobile?: NullableStringFieldUpdateOperationsInput | string | null
+    profileURL?: NullableStringFieldUpdateOperationsInput | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
     isProductOwner?: BoolFieldUpdateOperationsInput | boolean
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11317,6 +11348,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     mobile?: NullableStringFieldUpdateOperationsInput | string | null
+    profileURL?: NullableStringFieldUpdateOperationsInput | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
     isProductOwner?: BoolFieldUpdateOperationsInput | boolean
     address?: NullableStringFieldUpdateOperationsInput | string | null
