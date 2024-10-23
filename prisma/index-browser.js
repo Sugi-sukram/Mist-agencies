@@ -217,7 +217,16 @@ exports.Prisma.NullsOrder = {
 };
 exports.unit = exports.$Enums.unit = {
   KG: 'KG',
-  ML: 'ML'
+  G: 'G',
+  LITRE: 'LITRE',
+  ML: 'ML',
+  PC: 'PC',
+  DOZEN: 'DOZEN',
+  PACKET: 'PACKET',
+  METER: 'METER',
+  CENTIMETER: 'CENTIMETER',
+  INCH: 'INCH',
+  FEET: 'FEET'
 };
 
 exports.Prisma.ModelName = {

@@ -55,7 +55,16 @@ export type Feedback = $Result.DefaultSelection<Prisma.$FeedbackPayload>
 export namespace $Enums {
   export const unit: {
   KG: 'KG',
-  ML: 'ML'
+  G: 'G',
+  LITRE: 'LITRE',
+  ML: 'ML',
+  PC: 'PC',
+  DOZEN: 'DOZEN',
+  PACKET: 'PACKET',
+  METER: 'METER',
+  CENTIMETER: 'CENTIMETER',
+  INCH: 'INCH',
+  FEET: 'FEET'
 };
 
 export type unit = (typeof unit)[keyof typeof unit]

@@ -128,7 +128,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
         </Form.Item>
 
         <Form.Item
-          name="ImageUrl"
+          name="imageUrl"
           label="Image URL"
           rules={[{ required: true, message: "Please input the image URL!" }]}
         >

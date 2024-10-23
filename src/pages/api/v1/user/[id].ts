@@ -10,6 +10,7 @@ import {
   AuthenticatedRequest,
   authenticateJWT,
 } from "@/lib/middleware/jwtMiddleware";
+import { handleValidationError } from "@/utils/errorHandler";
 
 async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
   if (req.method === "GET") {
@@ -30,12 +31,7 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
         },
       });
     } catch (error) {
-      if (error instanceof HttpError) {
-        return error.handleResponse(res);
-      }
-      return new InternalServerError(
-        "An unexpected error occurred"
-      ).handleResponse(res);
+      handleValidationError(error, res);
     }
   } else {
     return new MethodNotAllowedError(

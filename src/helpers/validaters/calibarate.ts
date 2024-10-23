@@ -1,4 +1,5 @@
 import user from "@/pages/api/v1/user";
+import { unit } from "@/prisma/index";
 import { celebrate, Joi } from "celebrate";
 
 export const loginValidater = celebrate({
@@ -28,11 +29,13 @@ export const contactRequestValidater = celebrate({
 export const productRequestValidater = celebrate({
   body: Joi.object({
     name: Joi.string().required(),
-    unit: Joi.string().required(),
-    volume: Joi.string().required(),
-    packSize: Joi.string().required(),
-    originalPrice: Joi.string().required(),
-    discountPrice: Joi.string().required(),
-    imageUrl: Joi.string().required(),
+    unit: Joi.string()
+      .valid(...Object.values(unit)) 
+      .required(),
+    volume: Joi.number().required(),
+    packSize: Joi.number().required(),
+    originalPrice: Joi.number().required(),
+    discountPrice: Joi.number().required(),
+    ImageUrl: Joi.string().uri().required(), 
   }),
 });

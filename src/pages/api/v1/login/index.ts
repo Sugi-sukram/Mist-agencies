@@ -15,6 +15,7 @@ import {
   authenticateJWT,
 } from "@/lib/middleware/jwtMiddleware";
 import config from "@/config";
+import { handleValidationError } from "@/utils/errorHandler";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
@@ -49,13 +50,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         },
       });
     } catch (error) {
-      if (error instanceof HttpError) {
-        return error.handleResponse(res);
-      }
-      return new InternalServerError(
-        "An unexpected error occurred"
-      ).handleResponse(res);
-
+      handleValidationError(error, res);
     }
   } else {
     return new MethodNotAllowedError(

@@ -11,7 +11,16 @@ datasource db {
 
 enum unit {
   KG
+  G
+  LITRE
   ML
+  PC
+  DOZEN
+  PACKET
+  METER
+  CENTIMETER
+  INCH
+  FEET
 }
 
 model Admin {

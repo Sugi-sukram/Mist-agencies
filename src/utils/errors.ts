@@ -120,3 +120,4 @@ export class RefreshTokenError extends HttpError {
     Object.setPrototypeOf(this, RefreshTokenError.prototype);
   }
 }
+

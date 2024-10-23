@@ -11,6 +11,7 @@ import {
   authenticateJWT,
 } from "@/lib/middleware/jwtMiddleware";
 import { contactRequestValidater } from "@/helpers/validaters/calibarate";
+import { handleValidationError } from "@/utils/errorHandler";
 
 async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
   const { id } = req.query; // Get the product ID from the query
@@ -58,10 +59,8 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
         },
       });
     } catch (error) {
-      if (error instanceof HttpError) {
-        return error.handleResponse(res);
-      }
-      return new InternalServerError("An unexpected error occurred").handleResponse(res);
+      handleValidationError(error, res);
+
     }
   } else if (req.method === "DELETE") {
     try {
@@ -74,10 +73,7 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
         status: true,
       });
     } catch (error) {
-      if (error instanceof HttpError) {
-        return error.handleResponse(res);
-      }
-      return new InternalServerError("An unexpected error occurred").handleResponse(res);
+      handleValidationError(error, res);
     }
   } else {
     return new MethodNotAllowedError(`Method ${req.method} Not Allowed`).handleResponse(res);
