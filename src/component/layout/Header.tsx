@@ -63,7 +63,7 @@ const Header = () => {
     <div className="fixed top-0  z-10 w-full bg-white shadow-md">
       {isDevice && <SocialMediaHeader />}
       <header className="bg-white shadow-md">
-        <div className="container mx-auto flex justify-between items-center py-4 px-6">
+        <div className="container mx-auto flex justify-between items-center py-2 px-6">
           <div className="flex items-center space-x-4">
             <Image
               src={appIcon}

@@ -218,7 +218,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\Personal\\Projects\\Mist-agencies\\prisma",
+      "value": "D:\\project-buji ma\\Mist-agencies\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -234,7 +234,7 @@ const config = {
     "previewFeatures": [
       "omitApi"
     ],
-    "sourceFilePath": "D:\\Personal\\Projects\\Mist-agencies\\prisma\\schema.prisma",
+    "sourceFilePath": "D:\\project-buji ma\\Mist-agencies\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

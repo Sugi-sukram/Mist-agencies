@@ -16,20 +16,18 @@ function page() {
       }
     };
 
-    handleResize(); // Set initial image on component mount
-    window.addEventListener("resize", handleResize); // Update on window resize
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize); // Cleanup listener on unmount
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
   return (
     <div className={`${!isDevice ? "mx-auto mt-16" : "mx-auto mt-28"}`}>
       <SubHeader title="Contact us" />
       <ContactForm />
-      <div className="">
-        <MapComponent />
-      </div>
+     
     </div>
   );
 }
