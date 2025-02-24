@@ -1,4 +1,3 @@
-import user from "@/pages/api/v1/user";
 import { unit } from "@/prisma/index";
 import { celebrate, Joi } from "celebrate";
 
