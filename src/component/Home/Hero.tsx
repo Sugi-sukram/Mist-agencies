@@ -5,28 +5,42 @@ const Hero = () => {
   return (
     <section
       className="bg-blue-100 text-center py-20 relative bg-cover bg-center h-[550px] bg-no-repeat"
-      className="bg-blue-100 text-center py-20 relative bg-cover bg-center h-[550px] bg-no-repeat"
       style={{
         backgroundImage: `url(${homePageImage.src})`,
       }}
     >
       {/* Content wrapper */}
       <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-start p-6 md:w-[60%] md:pl-16 text-left">
-        {/* Title */}
-        <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight">
+        {/* Title with animation */}
+        <motion.h2
+          className="text-4xl md:text-6xl font-bold text-white leading-tight"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
           Mineral Water With Great Quality
-        </h2>
+        </motion.h2>
 
-        {/* Description */}
-        <p className="text-base md:text-lg text-white mt-4 leading-relaxed">
+        {/* Description with animation */}
+        <motion.p
+          className="text-base md:text-lg text-white mt-4 leading-relaxed"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
           Mineral water offers a refreshing and healthy option with a unique
           taste profile that can be quite appealing.
-        </p>
+        </motion.p>
 
-        {/* Button */}
-        <button className="mt-8 px-6 py-3 bg-limeGreen text-white rounded-md hover:bg-limeGreen-600 transition-colors duration-300">
+        {/* Button with animation */}
+        <motion.button
+          className="mt-8 px-6 py-3 bg-limeGreen text-white rounded-md hover:bg-limeGreen-600 transition-colors duration-300"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.4 }}
+        >
           Read More
-        </button>
+        </motion.button>
       </div>
     </section>
   );

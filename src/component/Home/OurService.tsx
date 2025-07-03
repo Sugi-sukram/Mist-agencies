@@ -70,7 +70,9 @@ const OurService = () => {
           <div className="flex justify-between items-center w-full h-full gap-5">
             {/* Previous Button Animation */}
             <motion.div
-              className={`w-[40px] h-[40px] rounded-full font-bold justify-center cursor-pointer flex items-center rotate-[180deg] border-collapse text-white ${currentIndex <= 0 && "hidden"}`}
+              className={`w-[40px] h-[40px] rounded-full font-bold justify-center cursor-pointer flex items-center rotate-[180deg] border-collapse text-white ${
+                currentIndex <= 0 && "hidden"
+              }`}
               onClick={handlePrevious}
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
@@ -110,7 +112,7 @@ const OurService = () => {
                       initial={{ opacity: 0, y: 50 }}
                       transition={{
                         duration: 0.8,
-                        delay: index * 0.2, // Staggered delay
+                        delay: index * 0.2, // Staggered delay for each service item
                         type: "spring",
                         stiffness: 100,
                       }}
@@ -142,7 +144,9 @@ const OurService = () => {
 
             {/* Next Button Animation */}
             <motion.div
-              className={`w-[40px] h-[40px] rounded-full font-bold justify-center flex items-center cursor-pointer text-white ${currentIndex + totalWidth - 1 >= OurservicesRecord.length - 1 && "hidden"}`}
+              className={`w-[40px] h-[40px] rounded-full font-bold justify-center flex items-center cursor-pointer text-white ${
+                currentIndex + totalWidth - 1 >= OurservicesRecord.length - 1 && "hidden"
+              }`}
               onClick={handleNext}
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}

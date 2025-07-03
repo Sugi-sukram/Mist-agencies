@@ -17,6 +17,7 @@ const Certifications = () => {
   return (
     <section className="py-16 bg-white text-center">
       <div className="container mx-auto px-6">
+        {/* Section Title */}
         <motion.h2
           className="text-5xl text-bluecolor"
           initial={{ opacity: 0 }}
@@ -33,7 +34,9 @@ const Certifications = () => {
         >
           Safe and healthy drinking water available at home all the time.
         </motion.p>
-        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+
+        {/* Certification Cards */}
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
           {certifications.map((cert, index) => (
             <motion.div
               key={cert.id}
@@ -46,12 +49,13 @@ const Certifications = () => {
                 type: "spring",
                 stiffness: 100,
               }}
+              whileHover={{ scale: 1.1 }} // Zoom effect on hover
             >
               <Image
                 src={cert.img}
                 alt={cert.name}
                 objectFit="cover"
-                className="rounded-lg"
+                className="rounded-lg shadow-lg transition-transform duration-300"
                 width={200}
                 height={200}
               />
