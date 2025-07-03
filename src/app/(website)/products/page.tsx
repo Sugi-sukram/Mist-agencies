@@ -5,61 +5,13 @@ import { IProduct } from "@/interface/product";
 import SubHeader from "@/component/common/SubHeader";
 
 import React, { useEffect, useState } from "react";
+import axiosPrivate from "@/utils/axios";
+import { Products } from "@/prisma/index";
+import { message } from "antd";
 
 function Page() {
-  const products: IProduct[] = [
-    {
-      image: productPh.src,
-      title: "Drinking Water",
-      description: "Pack Of 20 Bottles",
-      quantity: 100,
-      volume: 250,
-      unit: "ML",
-      originalPrice: 1320,
-      discountPrice: 999,
-    },
-    {
-      image: productPh.src,
-      title: "Drinking Water",
-      description: "Pack Of 15 Bottles",
-      quantity: 100,
-      volume: 500,
-      unit: "ML",
-      originalPrice: 1500,
-      discountPrice: 1200,
-    },
-    {
-      image: productPh.src,
-      title: "Drinking Water",
-      description: "Pack Of 10 Bottles",
-      quantity: 100,
-      volume: 1,
-      unit: "L",
-      originalPrice: 2000,
-      discountPrice: 1800,
-    },
-    {
-      image: productPh.src,
-      title: "Drinking Water",
-      description: "Pack Of 12 Bottles",
-      quantity: 100,
-      volume: 500,
-      unit: "ML",
-      originalPrice: 1600,
-      discountPrice: 1400,
-    },
-    {
-      image: productPh.src,
-      title: "Drinking Water",
-      description: "Pack Of 8 Bottles",
-      quantity: 100,
-      volume: 750,
-      unit: "ML",
-      originalPrice: 1400,
-      discountPrice: 1200,
-    },
-  ];
   const [isDevice, setIsDevice] = useState<boolean>(true);
+  const [products, setProducts] = useState<Products[]>([]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -77,12 +29,27 @@ function Page() {
       window.removeEventListener("resize", handleResize); // Cleanup listener on unmount
     };
   }, []);
+
+  const getProducts = async () => {
+    try {
+      const res = await axiosPrivate.get(`/api/v1/public/products`);
+      if (res && res.data) {
+        setProducts(res.data.products);
+      }
+    } catch (error) {
+      message.error("Failed to fetch products.");
+    }
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
   return (
     <div className={`${!isDevice ? "mx-auto mt-16" : "mx-auto mt-28"}`}>
       <SubHeader title="Products" />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  px-16 py-5 gap-6">
         {products.map((product) => (
-          <ProductCard key={product.title} product={product} />
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </div>

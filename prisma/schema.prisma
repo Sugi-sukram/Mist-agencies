@@ -1,7 +1,6 @@
 generator client {
-  provider        = "prisma-client-js"
-  output          = "."
-  previewFeatures = ["omitApi"]
+  provider = "prisma-client-js"
+  output   = "."
 }
 
 datasource db {
@@ -55,6 +54,7 @@ model Products {
   originalPrice Int
   discountPrice Int
   ImageUrl      String
+  description   String      @default("")
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
   feedback      Feedback[]

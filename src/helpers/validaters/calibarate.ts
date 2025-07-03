@@ -36,5 +36,6 @@ export const productRequestValidater = celebrate({
     originalPrice: Joi.number().required(),
     discountPrice: Joi.number().required(),
     ImageUrl: Joi.string().uri().required(), 
+    description: Joi.string().required(),
   }),
 });

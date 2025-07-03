@@ -30,7 +30,7 @@ export default function Home() {
     <div className={`${!isDevice ? "mx-auto mt-16" : "mx-auto mt-28"}`}>
       <Hero />
       <Welcome />
-      <Products />
+      {/* <Products /> */}
       <OurService />
       <Certifications />
       <BestMineralWater />
