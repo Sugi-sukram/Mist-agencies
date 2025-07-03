@@ -59,7 +59,7 @@ const Footer = () => {
           </h3>
           <p className="text-2xl">Implement for Better Future</p>
         </div>
-      </div>
+      </motion.div>
 
       <div className="container flex justify-end items-start row-auto gap-10 text-2xl w-[100%]">
         {true && (
@@ -139,12 +139,12 @@ const Footer = () => {
               mistwateragencies@gmail.com
             </p>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       <div className="text-right mt-8 text-2xl mr-28">
         <p>© 2024 MIST AGENCIES. All rights reserved.</p>
-      </div>
+      </motion.div>
     </footer>
   );
 };

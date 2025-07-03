@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import dropWater from "../../assets/dropWater.jpg";
 
 const BestMineralWater = () => {
@@ -7,6 +8,8 @@ const BestMineralWater = () => {
       title: "Source and Purity",
       description:
         "Mineral water is collected from natural underground sources and the purity of the water is paramount.",
+      positionClass: "top-10 left-40 text-right", // Unique position class
+      direction: "left", // Added direction for left-side animation
       positionClass: "top-10 left-10 md:left-40 text-left md:text-right", // Adjust positioning for mobile screens
     },
     {
@@ -14,6 +17,8 @@ const BestMineralWater = () => {
       title: "Mineral Content",
       description:
         "Each bottle is enriched with calcium, magnesium, sodium, and potassium. These vital minerals add numerous health benefits.",
+      positionClass: "top-[40%] left-10 text-right", // Unique position class
+      direction: "left", // Added direction for left-side animation
       positionClass: "top-[30%] left-10 text-left md:text-right", // Adjust for mobile
     },
     {
@@ -60,7 +65,7 @@ const BestMineralWater = () => {
             }}
           >
             {features.map((feature) => (
-              <div
+              <motion.div
                 key={feature.id}
                 className={`absolute w-[200px] sm:w-[250px] ${feature.positionClass}`}
               >

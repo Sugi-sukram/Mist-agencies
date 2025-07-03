@@ -1,10 +1,10 @@
 "use client";
-import Products from "@/component/Home/Products";
-import Hero from "@/component/Home/Hero";
-import Welcome from "@/component/Home/Welcomecomp";
-import OurService from "@/component/Home/OurService";
 import BestMineralWater from "@/component/Home/BestMineralWater";
 import Certifications from "@/component/Home/CertificationsComp";
+import Hero from "@/component/Home/Hero";
+import OurService from "@/component/Home/OurService";
+import Products from "@/component/Home/Products";
+import Welcome from "@/component/Home/Welcomecomp";
 import { useEffect, useState } from "react";
 
 export default function Home() {

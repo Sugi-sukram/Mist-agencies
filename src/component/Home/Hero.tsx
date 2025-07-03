@@ -1,8 +1,10 @@
+import { motion } from "framer-motion";
 import homePageImage from "../../assets/home-page_02-10.jpg";
 
 const Hero = () => {
   return (
     <section
+      className="bg-blue-100 text-center py-20 relative bg-cover bg-center h-[550px] bg-no-repeat"
       className="bg-blue-100 text-center py-20 relative bg-cover bg-center h-[550px] bg-no-repeat"
       style={{
         backgroundImage: `url(${homePageImage.src})`,

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import appIcon from "../../assets/dropWater.jpg"; // Correct way to import an image
 
@@ -33,7 +34,7 @@ const Welcome = () => {
               className="rounded-lg"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

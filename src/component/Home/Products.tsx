@@ -7,6 +7,7 @@ import { useRouter, usePathname } from "next/navigation";
 const Products: React.FC<any> = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [totalWidth, setTotalWidth] = useState<number>(0);
+  const [totalWidth, setTotalWidth] = useState<number>(0);
   const [finalView, setFinalView] = useState<boolean>(false);
   const router = useRouter();
 
@@ -48,9 +49,12 @@ const Products: React.FC<any> = () => {
           className={`w-[30px] h-[30px] rounded-full font-bold justify-center cursor-pointer flex items-center rotate-[180deg] border-[1px] border-black 
             ${currentIndex <= 0 && "hidden"}`}
           onClick={handlePrevious}
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: "spring", stiffness: 300 }}
         >
           <p>{"➜"}</p>
-        </div>
+        </motion.div>
 
         {/* Product List */}
         {productscard && productscard.length > 0 ? (
@@ -74,7 +78,17 @@ const Products: React.FC<any> = () => {
                 <div
                   className={`mt-4 w-[150px] sm:w-[200px] cursor-pointer hover:scale-105 transition-all duration-300 flex flex-col`}
                   key={e.id}
+                  whileHover={{ scale: 1.05 }}
+                  // transition={{ duration: 0.3 }}
                   onClick={() => console.log("Product clicked")}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.8,
+                    delay: index * 0.2, // Staggered delay for each product
+                    type: "spring",
+                    stiffness: 100,
+                  }}
                 >
                   <div className="justify-center items-center w-[100%]">
                     <Image
@@ -101,12 +115,13 @@ const Products: React.FC<any> = () => {
                       Contact Now
                     </button>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         ) : (
           <div className="h-[210px] w-full flex items-center justify-center text-textgrayPrimary">
+            <p>No Products to show</p>
             <p>No Products to show</p>
           </div>
         )}
@@ -119,9 +134,12 @@ const Products: React.FC<any> = () => {
               "hidden"
             }`}
           onClick={handleNext}
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: "spring", stiffness: 300 }}
         >
           {"➜"}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
