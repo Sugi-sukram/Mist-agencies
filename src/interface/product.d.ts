@@ -3,10 +3,9 @@ export interface IProduct {
     title: string;
     description: string;
     quantity: number;
-    size: string;
+    volume: number;
     unit: string;
     originalPrice: number;
     discountPrice: number;
-    discountPercentage: number;
   }
   

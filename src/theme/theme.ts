@@ -7,15 +7,22 @@ const theme: Theme = {
   dark: {
     components: {
       Menu: {
-        colorItemBgHover: "#3B3A3E",
+        colorItemBgHover: "#3f85d6",
         colorItemTextHover: "white",
-        colorItemBgSelected: "#1C1B1F",
+        colorItemBgSelected: "#93c245",
         colorItemTextSelected: "white",
+        colorSubItemBg: "#3f85d6",
+        colorIcon:"orange",
+        colorText: "#3f85d6",
+        colorPrimaryText: "#3f85d6",
+        colorBgContainer: "white",
+        colorBorder: "white",
       },
       Select: {
-        colorBorder: "transpanrent",
+        colorBorder: "#e5e7eb",
         colorPrimaryHover: "#d9d9d9",
-        colorPrimary: "#d9d9d9",
+        selectorBg: "#E2EDFA",
+        colorPrimary: "#E2EDFA",
         controlOutline: "white",
         optionSelectedBg: "rgba(217, 217, 217, 0.38)",
       },

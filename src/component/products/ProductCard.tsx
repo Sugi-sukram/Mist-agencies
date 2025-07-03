@@ -20,10 +20,10 @@ function ProductCard({ product }: props) {
       </div>
 
       <div className="mt-4">
-        <h3 className="text-2xl font-semibold">
+        <h3 className="text-2xl font-semibold text-nowrap">
           {product.title}{" "}
           <span className="text-2xl  text-black font-bold">
-            {product.size}
+            {product.volume}
             {product.unit}
           </span>
         </h3>
@@ -37,9 +37,12 @@ function ProductCard({ product }: props) {
           ₹{product.discountPrice}
         </p>
         <p className="ml-2 p-2 text-xs bg-textBlue rounded-full text-white flex items-center justify-center w-12 h-12">
-  ({product.discountPercentage}%)
-</p>
-
+          {`${(
+            ((product.originalPrice - product.discountPrice) /
+              product.originalPrice) *
+            100
+          ).toFixed(1)}%`}
+        </p>
       </div>
 
       <div className="mt-4">

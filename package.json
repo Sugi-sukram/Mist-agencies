@@ -2,29 +2,40 @@
   "name": "mist_agencies",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "migrate": "npx prisma migrate dev --schema=src/prisma/schema.prisma",
-    "generate": "npx prisma generate --schema=src/prisma/schema.prisma",
+    "migrate": "npx prisma migrate dev --schema=prisma/schema.prisma",
+    "generate": "npx prisma generate --schema=prisma/schema.prisma",
     "dev": "npm install && npm run generate && next dev",
+    "seed": "npx ts-node  ./prisma/seed.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
+  "prisma": {
+    "seed": "npx ts-node ./prisma/seed.ts"
+  },
   "dependencies": {
-    "@prisma/client": "^5.20.0",
+    "@prisma/client": "^5.21.1",
     "antd": "^5.21.1",
+    "axios": "^1.7.7",
+    "bcryptjs": "^2.4.3",
+    "celebrate": "^15.0.3",
     "dotenv": "^16.4.5",
+    "framer-motion": "^12.23.0",
+    "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.2",
     "leaflet": "^1.9.4",
     "next": "14.2.7",
     "ol": "^10.2.1",
-    "prisma": "^5.20.0",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.3.0",
-    "react-leaflet": "^4.2.1"
+    "react-leaflet": "^4.2.1",
+    "universal-cookie": "^7.2.1"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "@types/jsonwebtoken": "^9.0.7",
     "@types/leaflet": "^1.9.12",
     "@types/node": "^20",
@@ -33,6 +44,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.7",
     "postcss": "^8",
+    "prisma": "^5.21.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
