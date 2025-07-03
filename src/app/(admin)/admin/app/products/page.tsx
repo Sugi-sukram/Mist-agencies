@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Table, Button, Modal, Popconfirm, message } from "antd";
-import ProductForm from "./form";
+import ProductForm from "./Form";
 import { Products } from "@/prisma/index";
 import axiosPrivate from "@/utils/axios";
 

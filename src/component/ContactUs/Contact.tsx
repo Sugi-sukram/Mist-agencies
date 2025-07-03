@@ -144,7 +144,7 @@ const ContactForm = () => {
           </Form.Item>
           <Form.Item
             label="Choose venue"
-            name="venue"
+            name="Venue"
             rules={[{ required: true, message: "Please select an option!" }]}
           >
             <Select placeholder="Choose*" className="w-full">

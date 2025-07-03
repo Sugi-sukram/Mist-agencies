@@ -6,7 +6,7 @@ dotenv.config();
 const prisma =  new PrismaClient();
 
 export async function main() {
-  console.log(`Start seeding ...`, prisma);
+  console.log(`Start seeding ...`);
   const salt = await bcrypt.genSalt(14);
   let hash = await bcrypt.hash("tn69s6426", salt);
   const user = await prisma.admin.create({
