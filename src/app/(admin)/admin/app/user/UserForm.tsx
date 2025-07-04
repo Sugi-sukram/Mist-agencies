@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
-import { Form, Input, InputNumber, Button } from "antd";
+import { Form, Input, InputNumber, Button, Switch, Select } from "antd";
+import { unitOptions } from "@/config/unitOptions"; // Assuming you have unitOptions for unit selection
+const { Option } = Select;
 
 interface UserFormProps {
   onSubmit: (values: any) => void;
@@ -43,9 +45,12 @@ const UserForm: React.FC<UserFormProps> = ({
         city: "",
         state: "Tamil Nadu",
         country: "India",
+        isActive: true,
+        isProductOwner: false,
         ...initialValues, // Spread initialValues to override defaults
       }}
     >
+      {/* Name */}
       <Form.Item
         name="name"
         label="Name"
@@ -54,6 +59,7 @@ const UserForm: React.FC<UserFormProps> = ({
         <Input placeholder="Enter name" />
       </Form.Item>
 
+      {/* Email */}
       <Form.Item
         name="email"
         label="Email"
@@ -62,14 +68,49 @@ const UserForm: React.FC<UserFormProps> = ({
         <Input placeholder="Enter email" />
       </Form.Item>
 
+      {/* Mobile */}
       <Form.Item
         name="mobile"
         label="Mobile"
-        rules={[{ required: true, message: "Please input the mobile number!" }]}
+        rules={[
+          { required: true, message: "Please input the mobile number!" },
+          {
+            pattern: /^[0-9]{10}$/,
+            message: "Mobile number must be 10 digits",
+          },
+        ]}
       >
         <Input placeholder="Enter mobile number" />
       </Form.Item>
 
+      {/* Profile URL */}
+      <Form.Item
+        name="profileURL"
+        label="Profile URL"
+        rules={[{ type: "url", message: "Please input a valid URL!" }]}
+      >
+        <Input placeholder="Enter profile URL" />
+      </Form.Item>
+
+      {/* Address */}
+      <Form.Item
+        name="address"
+        label="Address"
+        rules={[{ required: true, message: "Please input the address!" }]}
+      >
+        <Input placeholder="Enter address" />
+      </Form.Item>
+
+      {/* Pincode */}
+      <Form.Item
+        name="pincode"
+        label="Pincode"
+        rules={[{ required: true, message: "Please input the pincode!" }]}
+      >
+        <Input placeholder="Enter pincode" />
+      </Form.Item>
+
+      {/* City */}
       <Form.Item
         name="city"
         label="City"
@@ -78,6 +119,7 @@ const UserForm: React.FC<UserFormProps> = ({
         <Input placeholder="Enter city" />
       </Form.Item>
 
+      {/* State */}
       <Form.Item
         name="state"
         label="State"
@@ -86,6 +128,7 @@ const UserForm: React.FC<UserFormProps> = ({
         <Input placeholder="Enter state" />
       </Form.Item>
 
+      {/* Country */}
       <Form.Item
         name="country"
         label="Country"
@@ -94,6 +137,48 @@ const UserForm: React.FC<UserFormProps> = ({
         <Input placeholder="Enter country" />
       </Form.Item>
 
+      {/* Password */}
+      <Form.Item
+        name="password"
+        label="Password"
+        rules={[
+          { required: true, message: "Please input the password!" },
+          { min: 6, message: "Password must be at least 6 characters" },
+        ]}
+      >
+        <Input.Password placeholder="Enter password" />
+      </Form.Item>
+
+      {/* Confirm Password
+      <Form.Item
+        name="confirmPassword"
+        label="Confirm Password"
+        rules={[
+          { required: true, message: "Please confirm the password!" },
+          {
+            validator: (_, value) =>
+              value === form.getFieldValue("password")
+                ? Promise.resolve()
+                : Promise.reject("Passwords do not match!"),
+          },
+        ]}
+      >
+        <Input.Password placeholder="Confirm password" />
+      </Form.Item> */}
+
+      {/* Is Active */}
+      <Form.Item name="isActive" label="Is Active" valuePropName="checked">
+        <Switch />
+      </Form.Item>
+
+      {/* Is Product Owner */}
+      <Form.Item name="isProductOwner" label="Is Product Owner" valuePropName="checked">
+        <Switch />
+      </Form.Item>
+
+    
+
+      {/* Submit Button */}
       <Form.Item>
         <Button type="primary" htmlType="submit" loading={loading}>
           Submit

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Table, Button, Modal, Popconfirm, message } from "antd";
-import {Admin as Users } from "@/prisma/index";
+import { Admin as Users } from "@/prisma/index";
 import axiosPrivate from "@/utils/axios";
 import UserForm from "./UserForm";
 
@@ -16,6 +16,7 @@ const UserPage: React.FC = () => {
   const getUsers = async () => {
     try {
       const res = await axiosPrivate.get(`/api/v1/user`);
+      console.log(res);
       if (res && res.data) {
         setUsers(res.data.users);
       }
@@ -44,19 +45,17 @@ const UserPage: React.FC = () => {
   const onSubmit = async (values: any) => {
     setLoading(true);
     try {
+      let res = null;
       if (editingUser) {
-        // Update user
-        await axiosPrivate.post(`/api/v1/user/${editingUser.id}`, values);
-        message.success("User updated successfully");
+        res = await axiosPrivate.put(`/api/v1/user/${editingUser.id}`, values);
       } else {
-        // Create new user
-        let res = await axiosPrivate.post(`/api/v1/user`, values);
-        if (res && res.data) {
-          message.success("User added successfully");
-          setIsModalVisible(false);
-          setEditingUser(null);
-          getUsers(); // Refresh user list
-        }
+        res = await axiosPrivate.post(`/api/v1/user`, values);
+      }
+      if (res && res.data) {
+        message.success(editingUser ? "User updated successfully" : "User added successfully");
+        setIsModalVisible(false);
+        setEditingUser(null);
+        getUsers(); // Refresh user list
       }
     } catch (error) {
       message.error("Failed to save user.");
@@ -125,7 +124,13 @@ const UserPage: React.FC = () => {
     <div className="p-4">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-bold">User Management</h2>
-        <Button type="primary" onClick={() => showModal(null)}>
+        <Button
+          type="primary"
+          onClick={() => {
+            showModal(null);
+            setEditingUser(null);
+          }}
+        >
           + Add User
         </Button>
       </div>

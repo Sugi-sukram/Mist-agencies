@@ -10,7 +10,7 @@ import {
   AuthenticatedRequest,
   authenticateJWT,
 } from "@/lib/middleware/jwtMiddleware";
-import { contactRequestValidater } from "@/helpers/validaters/calibarate";
+import { contactRequestValidater, productRequestValidater } from "@/helpers/validaters/calibarate";
 import { handleValidationError } from "@/utils/errorHandler";
 
 async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
@@ -43,7 +43,7 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
     }
   } else if (req.method === "PUT") {
     try {
-      await contactRequestValidater(req, res);
+      await productRequestValidater(req, res);
       const body = req.body;
 
       const product = await prisma.products.update({
