@@ -88,7 +88,8 @@ const App = ({ children }: { children: JSX.Element }) => {
         className="bg-white"
         defaultSelectedKeys={[`${pathname}`]}
         defaultOpenKeys={[`${pathname?.split("/")[2]}`]}
-        activeKey={`${pathname?.split("/")[2]}`}
+        // activeKey={`${pathname?.split("/")[2]}`}
+        accessKey={`${pathname?.split("/")[2]}`}
         mode="inline"
         items={items}
       />
@@ -96,14 +97,14 @@ const App = ({ children }: { children: JSX.Element }) => {
   );
 
   return (
-    <Layout style={{ height: "97dvh", backgroundColor: "white" }}>
+    <Layout style={{ height: "97dvh", backgroundColor: "white" }} className="" >
       {/* Sidebar for larger screens */}
       {!isMobile && (
         <Sider
           theme="light"
           collapsed={collapsed}
           width={230}
-          className="relative flex flex-col justify-between"
+          className="relative flex flex-col justify-between "
           onCollapse={(value) => setCollapsed(value)}
           style={{
             height: "100vh",
@@ -241,9 +242,8 @@ const App = ({ children }: { children: JSX.Element }) => {
           </Drawer>
         </>
       )}
-
       <Layout>
-        <div className="h-full py-2 bg-gray-50" id="main">
+        <div className="h-full py-2  bg-white" id="main">
           {children}
         </div>
       </Layout>

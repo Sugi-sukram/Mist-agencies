@@ -14,13 +14,13 @@ export async function main() {
       name: "Mistbusiness",
       email: "mistbusiness2024@gmail.com",
       password: hash,
-      mobile: "+919876543210",
+      mobile: "9876543210",
       isProductOwner: true,
       isActive: true,
       address: "Noida",
       pincode: "641109",
-      lastLogin: new Date(),
-      image: "https://i.ibb.co/5s5W8cP/IMG-20220303-0001-1.jpg",
+      lastLogin: new Date(),      
+      profileURL: "https://i.ibb.co/5s5W8cP/IMG-20220303-0001-1.jpg",
     },
   });
   console.log(`Created user with id: ${user.id}`);
