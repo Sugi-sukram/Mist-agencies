@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import homePageImage from "../../assets/home-page_02-10.jpg";
+import { useRouter } from "next/navigation";
 
 const Hero = () => {
+   const router = useRouter();
   return (
     <section
       className="bg-blue-100 text-center py-20 relative bg-cover bg-center h-[550px] bg-no-repeat"
@@ -38,6 +40,9 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={() =>   router.push('/aboutus')}
         >
           Read More
         </motion.button>
