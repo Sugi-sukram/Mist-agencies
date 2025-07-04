@@ -1567,7 +1567,6 @@ export namespace Prisma {
     state: string | null
     country: string | null
     lastLogin: Date | null
-    image: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1587,7 +1586,6 @@ export namespace Prisma {
     state: string | null
     country: string | null
     lastLogin: Date | null
-    image: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1607,7 +1605,6 @@ export namespace Prisma {
     state: number
     country: number
     lastLogin: number
-    image: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -1629,7 +1626,6 @@ export namespace Prisma {
     state?: true
     country?: true
     lastLogin?: true
-    image?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1649,7 +1645,6 @@ export namespace Prisma {
     state?: true
     country?: true
     lastLogin?: true
-    image?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1669,7 +1664,6 @@ export namespace Prisma {
     state?: true
     country?: true
     lastLogin?: true
-    image?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1761,8 +1755,7 @@ export namespace Prisma {
     city: string | null
     state: string | null
     country: string | null
-    lastLogin: Date
-    image: string | null
+    lastLogin: Date | null
     createdAt: Date
     updatedAt: Date
     _count: AdminCountAggregateOutputType | null
@@ -1799,7 +1792,6 @@ export namespace Prisma {
     state?: boolean
     country?: boolean
     lastLogin?: boolean
-    image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     sessions?: boolean | Admin$sessionsArgs<ExtArgs>
@@ -1821,7 +1813,6 @@ export namespace Prisma {
     state?: boolean
     country?: boolean
     lastLogin?: boolean
-    image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["admin"]>
@@ -1841,7 +1832,6 @@ export namespace Prisma {
     state?: boolean
     country?: boolean
     lastLogin?: boolean
-    image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["admin"]>
@@ -1861,12 +1851,11 @@ export namespace Prisma {
     state?: boolean
     country?: boolean
     lastLogin?: boolean
-    image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type AdminOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "mobile" | "profileURL" | "isActive" | "isProductOwner" | "address" | "pincode" | "password" | "city" | "state" | "country" | "lastLogin" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["admin"]>
+  export type AdminOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "mobile" | "profileURL" | "isActive" | "isProductOwner" | "address" | "pincode" | "password" | "city" | "state" | "country" | "lastLogin" | "createdAt" | "updatedAt", ExtArgs["result"]["admin"]>
   export type AdminInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | Admin$sessionsArgs<ExtArgs>
     _count?: boolean | AdminCountOutputTypeDefaultArgs<ExtArgs>
@@ -1893,8 +1882,7 @@ export namespace Prisma {
       city: string | null
       state: string | null
       country: string | null
-      lastLogin: Date
-      image: string | null
+      lastLogin: Date | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["admin"]>
@@ -2335,7 +2323,6 @@ export namespace Prisma {
     readonly state: FieldRef<"Admin", 'String'>
     readonly country: FieldRef<"Admin", 'String'>
     readonly lastLogin: FieldRef<"Admin", 'DateTime'>
-    readonly image: FieldRef<"Admin", 'String'>
     readonly createdAt: FieldRef<"Admin", 'DateTime'>
     readonly updatedAt: FieldRef<"Admin", 'DateTime'>
   }
@@ -9412,7 +9399,6 @@ export namespace Prisma {
     state: 'state',
     country: 'country',
     lastLogin: 'lastLogin',
-    image: 'image',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -9624,8 +9610,7 @@ export namespace Prisma {
     city?: StringNullableFilter<"Admin"> | string | null
     state?: StringNullableFilter<"Admin"> | string | null
     country?: StringNullableFilter<"Admin"> | string | null
-    lastLogin?: DateTimeFilter<"Admin"> | Date | string
-    image?: StringNullableFilter<"Admin"> | string | null
+    lastLogin?: DateTimeNullableFilter<"Admin"> | Date | string | null
     createdAt?: DateTimeFilter<"Admin"> | Date | string
     updatedAt?: DateTimeFilter<"Admin"> | Date | string
     sessions?: SessionListRelationFilter
@@ -9645,8 +9630,7 @@ export namespace Prisma {
     city?: SortOrderInput | SortOrder
     state?: SortOrderInput | SortOrder
     country?: SortOrderInput | SortOrder
-    lastLogin?: SortOrder
-    image?: SortOrderInput | SortOrder
+    lastLogin?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     sessions?: SessionOrderByRelationAggregateInput
@@ -9669,8 +9653,7 @@ export namespace Prisma {
     city?: StringNullableFilter<"Admin"> | string | null
     state?: StringNullableFilter<"Admin"> | string | null
     country?: StringNullableFilter<"Admin"> | string | null
-    lastLogin?: DateTimeFilter<"Admin"> | Date | string
-    image?: StringNullableFilter<"Admin"> | string | null
+    lastLogin?: DateTimeNullableFilter<"Admin"> | Date | string | null
     createdAt?: DateTimeFilter<"Admin"> | Date | string
     updatedAt?: DateTimeFilter<"Admin"> | Date | string
     sessions?: SessionListRelationFilter
@@ -9690,8 +9673,7 @@ export namespace Prisma {
     city?: SortOrderInput | SortOrder
     state?: SortOrderInput | SortOrder
     country?: SortOrderInput | SortOrder
-    lastLogin?: SortOrder
-    image?: SortOrderInput | SortOrder
+    lastLogin?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: AdminCountOrderByAggregateInput
@@ -9716,8 +9698,7 @@ export namespace Prisma {
     city?: StringNullableWithAggregatesFilter<"Admin"> | string | null
     state?: StringNullableWithAggregatesFilter<"Admin"> | string | null
     country?: StringNullableWithAggregatesFilter<"Admin"> | string | null
-    lastLogin?: DateTimeWithAggregatesFilter<"Admin"> | Date | string
-    image?: StringNullableWithAggregatesFilter<"Admin"> | string | null
+    lastLogin?: DateTimeNullableWithAggregatesFilter<"Admin"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Admin"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Admin"> | Date | string
   }
@@ -10135,8 +10116,7 @@ export namespace Prisma {
     city?: string | null
     state?: string | null
     country?: string | null
-    lastLogin: Date | string
-    image?: string | null
+    lastLogin?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -10156,8 +10136,7 @@ export namespace Prisma {
     city?: string | null
     state?: string | null
     country?: string | null
-    lastLogin: Date | string
-    image?: string | null
+    lastLogin?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -10177,8 +10156,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     state?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
-    lastLogin?: DateTimeFieldUpdateOperationsInput | Date | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -10198,8 +10176,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     state?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
-    lastLogin?: DateTimeFieldUpdateOperationsInput | Date | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -10219,8 +10196,7 @@ export namespace Prisma {
     city?: string | null
     state?: string | null
     country?: string | null
-    lastLogin: Date | string
-    image?: string | null
+    lastLogin?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -10239,8 +10215,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     state?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
-    lastLogin?: DateTimeFieldUpdateOperationsInput | Date | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10259,8 +10234,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     state?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
-    lastLogin?: DateTimeFieldUpdateOperationsInput | Date | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10728,6 +10702,17 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -10769,7 +10754,6 @@ export namespace Prisma {
     state?: SortOrder
     country?: SortOrder
     lastLogin?: SortOrder
-    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -10789,7 +10773,6 @@ export namespace Prisma {
     state?: SortOrder
     country?: SortOrder
     lastLogin?: SortOrder
-    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -10809,7 +10792,6 @@ export namespace Prisma {
     state?: SortOrder
     country?: SortOrder
     lastLogin?: SortOrder
-    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -10856,6 +10838,20 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBoolFilter<$PrismaModel>
     _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -11187,6 +11183,10 @@ export namespace Prisma {
     set?: boolean
   }
 
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
@@ -11446,6 +11446,17 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -11519,6 +11530,20 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBoolFilter<$PrismaModel>
     _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -11910,8 +11935,7 @@ export namespace Prisma {
     city?: string | null
     state?: string | null
     country?: string | null
-    lastLogin: Date | string
-    image?: string | null
+    lastLogin?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -11930,8 +11954,7 @@ export namespace Prisma {
     city?: string | null
     state?: string | null
     country?: string | null
-    lastLogin: Date | string
-    image?: string | null
+    lastLogin?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -11966,8 +11989,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     state?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
-    lastLogin?: DateTimeFieldUpdateOperationsInput | Date | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -11986,8 +12008,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     state?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
-    lastLogin?: DateTimeFieldUpdateOperationsInput | Date | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
+    lastLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

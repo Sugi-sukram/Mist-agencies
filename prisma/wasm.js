@@ -135,7 +135,6 @@ exports.Prisma.AdminScalarFieldEnum = {
   state: 'state',
   country: 'country',
   lastLogin: 'lastLogin',
-  image: 'image',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
