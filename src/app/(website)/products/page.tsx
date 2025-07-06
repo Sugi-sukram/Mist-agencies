@@ -45,7 +45,7 @@ function Page() {
     getProducts();
   }, []);
   return (
-    <div className={`${!isDevice ? "mx-auto mt-16" : "mx-auto mt-28"}`}>
+    <div className={`${!isDevice ? "mx-auto mt-16" : "mx-auto mt-25"}`}>
       <SubHeader title="Products" />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  px-16 py-5 gap-6">
         {products.map((product) => (

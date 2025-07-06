@@ -3,7 +3,7 @@
 import Image from "next/image";
 import appIcon from "@/assets/appIcon.png";
 import { useRouter, usePathname } from "next/navigation";
-import { Menu, Button, Drawer } from "antd";
+import { Menu, Drawer } from "antd";
 import { useEffect, useState } from "react";
 import { TiThMenuOutline } from "react-icons/ti";
 import { MdOutlineMiscellaneousServices } from "react-icons/md";
@@ -19,34 +19,13 @@ const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
-
-  const menuItems = [
-    { name: "Home", path: "/", icon: <AiOutlineHome /> },
-    { name: "About Us", path: "/aboutus", icon: <AiOutlineInfoCircle /> },
-    { name: "Products", path: "/products", icon: <AiOutlineAppstore /> },
-    {
-      name: "Services",
-      path: "/services",
-      icon: <MdOutlineMiscellaneousServices />,
-    },
-    { name: "Contact Us", path: "/contactus", icon: <AiOutlinePhone /> },
-  ];
-
-  const showDrawer = () => setVisible(true);
-  const closeDrawer = () => setVisible(false);
-
   const [isDevice, setIsDevice] = useState<boolean>(true);
-
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setIsDevice(false);
-      } else {
-        setIsDevice(true);
-      }
+      setIsDevice(window.innerWidth >= 768);
     };
 
-    handleResize(); // Set initial image on component mount
+    handleResize(); // Set initial state
     window.addEventListener("resize", handleResize); // Update on window resize
 
     return () => {
@@ -56,14 +35,48 @@ const Header = () => {
 
   const handleMenuClick = (path: string) => {
     router.push(path);
-    closeDrawer();
+    setVisible(false);
   };
 
+  const menuItems = [
+    {
+      key: "/",
+      icon: <AiOutlineHome />,
+      label: "Home",
+      onClick: () => handleMenuClick("/"),
+    },
+    {
+      key: "/aboutus",
+      icon: <AiOutlineInfoCircle />,
+      label: "About Us",
+      onClick: () => handleMenuClick("/aboutus"),
+    },
+    {
+      key: "/products",
+      icon: <AiOutlineAppstore />,
+      label: "Products",
+      onClick: () => handleMenuClick("/products"),
+    },
+    {
+      key: "/services",
+      icon: <MdOutlineMiscellaneousServices />,
+      label: "Services",
+      onClick: () => handleMenuClick("/services"),
+    },
+    {
+      key: "/contactus",
+      icon: <AiOutlinePhone />,
+      label: "Contact Us",
+      onClick: () => handleMenuClick("/contactus"),
+    },
+  ];
+
   return (
-    <div className="fixed top-0  z-10 w-full bg-white shadow-md">
+    <div className="w-dvw ">
+    <div className="fixed top-0 z-10 w-dvw bg-white shadow-md">
       {isDevice && <SocialMediaHeader />}
       <header className="bg-white shadow-md">
-        <div className="container mx-auto flex justify-between items-center py-4 px-6">
+        <div className="container mx-auto flex justify-between items-center py-2 px-6">
           <div className="flex items-center space-x-4">
             <Image
               src={appIcon}
@@ -79,16 +92,16 @@ const Header = () => {
           <nav className="hidden md:flex space-x-8">
             {menuItems.map((item) => (
               <p
-                key={item.path}
+                key={item.key}
                 className={`relative text-gray-700 text-lg font-semibold cursor-pointer hover:text-blue-600 transition-colors duration-300 ${
-                  pathname?.includes(item.path) ? "text-blue-600" : ""
+                  pathname === item.key ? "text-blue-600" : ""
                 }`}
-                onClick={() => router.push(item.path)}
+                onClick={item.onClick}
               >
-                {item.name}
+                {item.label}
                 <span
                   className={`absolute left-0 bottom-[-4px] w-full h-[2px] bg-blue-600 transition-transform duration-300 transform ${
-                    pathname === item.path ? "scale-x-100" : "scale-x-0"
+                    pathname === item.key ? "scale-x-100" : "scale-x-0"
                   } group-hover:scale-x-100`}
                 />
               </p>
@@ -96,45 +109,34 @@ const Header = () => {
           </nav>
 
           {/* Mobile Menu Button */}
-          <Button
+          <button
             className="md:hidden bg-[#4d8fab]"
-            onClick={showDrawer}
-            type="primary"
+            onClick={() => setVisible(true)}
           >
             <TiThMenuOutline className="text-2xl text-white" />
-          </Button>
+          </button>
         </div>
 
         {/* Drawer for Mobile Menu */}
         <Drawer
           title="Menu"
           placement="right"
-          onClose={closeDrawer}
+          onClose={() => setVisible(false)}
           open={visible}
-          styles={{body: {padding: 0}}}
-          width={300} 
+          styles={{ body: { padding: 0 } }}
+          width={300}
           closeIcon={null}
-          className="drawer-custom" // Custom class for additional styling
+          className="drawer-custom"
         >
           <Menu
             mode="inline"
-            className="text-lg h-full bg-[#ffffff] text-white"
-          >
-            {menuItems.map((item) => (
-              <Menu.Item
-                key={item.path}
-                icon={item.icon}
-                className={`hover:bg-[#4d8fab] ${
-                  pathname === item.path ? "bg-[#1f566e] text-white" : ""
-                } hover:text-white transition-all duration-300`}
-                onClick={() => handleMenuClick(item.path)}
-              >
-                {item.name}
-              </Menu.Item>
-            ))}
-          </Menu>
+            className="text-lg h-full bg-[#ffffff]"
+            selectedKeys={[pathname || "/"]}
+            items={menuItems}
+          />
         </Drawer>
       </header>
+    </div>
     </div>
   );
 };

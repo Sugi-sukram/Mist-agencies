@@ -1,6 +1,5 @@
 import Image from "next/image"; // Import Next.js Image component
-import { Card, Button } from "antd";
-import { IProduct } from "@/interface/product";
+import { Card } from "antd";
 import { Products } from "@/prisma/index";
 // import React from "react";
 interface props {
@@ -48,9 +47,9 @@ function ProductCard({ product }: props) {
       </div>
 
       <div className="mt-4">
-        <Button className="text-lg! px-10 bg-lightgreen text-white rounded-md">
+        <button className="text-lg! px-10 bg-lightgreen text-white rounded-md">
           BUY NOW
-        </Button>
+        </button>
       </div>
     </Card>
   );
