@@ -1,9 +1,10 @@
 import Image from "next/image"; // Import Next.js Image component
-import { Card, Button } from "antd";
-import { IProduct } from "@/interface/product";
+import { Card } from "antd";
+import { Products } from "@/prisma/index";
 // import React from "react";
 interface props {
-  product: IProduct;
+  // product: IProduct;
+  product: Products;
 }
 
 function ProductCard({ product }: props) {
@@ -11,7 +12,7 @@ function ProductCard({ product }: props) {
     <Card className="text-center rounded-lg w-full min-w-fit max-w-xl  p-4  bg-white shadow-md">
       <div>
         <Image
-          src={product.image}
+          src={product.ImageUrl}
           alt={product.description}
           width={200} // Define width explicitly
           height={200} // Define height explicitly
@@ -21,7 +22,7 @@ function ProductCard({ product }: props) {
 
       <div className="mt-4">
         <h3 className="text-2xl font-semibold text-nowrap">
-          {product.title}{" "}
+          {product.name}{" "}
           <span className="text-2xl  text-black font-bold">
             {product.volume}
             {product.unit}
@@ -46,9 +47,9 @@ function ProductCard({ product }: props) {
       </div>
 
       <div className="mt-4">
-        <Button className="!text-lg px-10 bg-lightgreen text-white rounded-md">
+        <button className="text-lg! px-10 bg-lightgreen text-white rounded-md">
           BUY NOW
-        </Button>
+        </button>
       </div>
     </Card>
   );

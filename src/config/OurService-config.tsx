@@ -23,21 +23,21 @@ export const OurservicesRecord = [
     img: dropWater,
   },
   {
-    id: 3,
+    id: 4,
     title: "Marriage Hall",
     description:
       "You can enthrall your guests with fresh beverages & drinks at the grandest marriage halls.",
     img: dropWater,
   },
   {
-    id: 3,
+    id: 5,
     title: "Marriage Hall",
     description:
       "You can enthrall your guests with fresh beverages & drinks at the grandest marriage halls.",
     img: dropWater,
   },
   {
-    id: 3,
+    id: 6,
     title: "Marriage Hall",
     description:
       "You can enthrall your guests with fresh beverages & drinks at the grandest marriage halls.",

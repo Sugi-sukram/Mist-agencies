@@ -47,6 +47,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
         originalPrice: 0,
         discountPrice: 0,
         ImageUrl: "",
+        description: "",
         ...initialValues, // Spread initialValues to override defaults
       }}
     >
@@ -59,6 +60,15 @@ const ProductForm: React.FC<ProductFormProps> = ({
           ]}
         >
           <Input placeholder="Enter product name" />
+        </Form.Item>
+        <Form.Item
+          name="description"
+          label="Description"
+          rules={[
+            { required: true, message: "Please input the description!" },
+          ]}
+        >
+          <Input placeholder="Enter description" />
         </Form.Item>
 
         <Form.Item

@@ -1,9 +1,6 @@
 import prisma from "@/loaders/prisma";
 import type { NextApiRequest, NextApiResponse } from "next";
-import {
-  NotFoundError,
-  MethodNotAllowedError,
-} from "@/utils/errors";
+import { NotFoundError, MethodNotAllowedError } from "@/utils/errors";
 import {
   AuthenticatedRequest,
   authenticateJWT,
@@ -14,12 +11,11 @@ import { handleValidationError } from "@/utils/errorHandler";
 async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
   if (req.method === "GET") {
     try {
-      const products = await prisma.products.findMany({});
-      if (!products.length) throw new NotFoundError("No products found");
+      const products = await prisma.products.findMany({}) || [];
 
       res.status(200).json({
         data: {
-          products,
+          products ,
           message: "Products fetched successfully.",
           status: true,
         },
@@ -29,7 +25,7 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
     }
   } else if (req.method === "POST") {
     try {
-     await productRequestValidater(req, res);
+      await productRequestValidater(req, res);
       const body = req.body;
 
       const product = await prisma.products.create({
@@ -38,7 +34,7 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
 
       res.status(200).json({
         data: {
-          // product,
+          product,
           message: "Product saved successfully.",
           status: true,
         },
@@ -47,7 +43,9 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
       handleValidationError(error, res);
     }
   } else {
-    return new MethodNotAllowedError(`Method ${req.method} Not Allowed`).handleResponse(res);
+    return new MethodNotAllowedError(
+      `Method ${req.method} Not Allowed`
+    ).handleResponse(res);
   }
 }
 

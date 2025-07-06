@@ -1,10 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { JSX, useEffect, useState } from "react";
 import type { MenuProps } from "antd";
 import { Button, Dropdown, Layout, Menu, Drawer } from "antd";
 import Image from "next/image";
 import logo from "@/assets/appIcon.png";
-import { LuMenuSquare } from "react-icons/lu";
+import { LuSquare } from "react-icons/lu";
 import { MdDashboard } from "react-icons/md";
 import { FaUsers } from "react-icons/fa";
 import { FaChildReaching } from "react-icons/fa6";
@@ -77,7 +77,7 @@ const App = ({ children }: { children: JSX.Element }) => {
   const sidebarContent = (
     <div className="flex-1 h-[calc(100dvh-3.5rem)]">
       <div className="flex justify-center items-center h-16">
-        <Image src={logo} alt="logo" className="!h-12 !w-16" />
+        <Image src={logo} alt="logo" className="h-12! w-16!" />
       </div>
       <Menu
         theme="light"
@@ -88,7 +88,8 @@ const App = ({ children }: { children: JSX.Element }) => {
         className="bg-white"
         defaultSelectedKeys={[`${pathname}`]}
         defaultOpenKeys={[`${pathname?.split("/")[2]}`]}
-        activeKey={`${pathname?.split("/")[2]}`}
+        // activeKey={`${pathname?.split("/")[2]}`}
+        accessKey={`${pathname?.split("/")[2]}`}
         mode="inline"
         items={items}
       />
@@ -96,14 +97,14 @@ const App = ({ children }: { children: JSX.Element }) => {
   );
 
   return (
-    <Layout style={{ height: "97dvh", backgroundColor: "white" }}>
+    <Layout style={{ height: "97dvh", backgroundColor: "white" }} className="" >
       {/* Sidebar for larger screens */}
       {!isMobile && (
         <Sider
           theme="light"
           collapsed={collapsed}
           width={230}
-          className="relative flex flex-col justify-between"
+          className="relative flex flex-col justify-between "
           onCollapse={(value) => setCollapsed(value)}
           style={{
             height: "100vh",
@@ -222,12 +223,12 @@ const App = ({ children }: { children: JSX.Element }) => {
         <>
           <div className="flex justify-between items-center m-4">
             <div className="flex items-center gap-2">
-              <Image src={logo} alt="logo" className="!h-8 !w-10" />
+              <Image src={logo} alt="logo" className="h-8! w-10!" />
               <span className="font-semibold text-lg">Mist Agency</span>{" "}
               {/* Add your app's name here */}
             </div>
             <div onClick={() => setDrawerVisible(true)}>
-              <LuMenuSquare fontSize={30} />
+              <LuSquare fontSize={30} />
             </div>
           </div>
           <Drawer
@@ -241,9 +242,8 @@ const App = ({ children }: { children: JSX.Element }) => {
           </Drawer>
         </>
       )}
-
       <Layout>
-        <div className="h-full py-2 bg-gray-50" id="main">
+        <div className="h-full py-2  bg-white" id="main">
           {children}
         </div>
       </Layout>

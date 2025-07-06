@@ -27,10 +27,10 @@ export default function Home() {
     };
   }, []);
   return (
-    <div className={`${!isDevice ? "mx-auto mt-16" : "mx-auto mt-28"}`}>
+    <div className={`${!isDevice ? "mx-auto mt-16" : "mx-auto mt-25"}`}>
       <Hero />
       <Welcome />
-      <Products />
+      {/* <Products /> */}
       <OurService />
       <Certifications />
       <BestMineralWater />

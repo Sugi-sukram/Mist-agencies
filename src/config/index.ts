@@ -9,8 +9,8 @@ export default {
   host: process.env.HOST,
   port: process.env.PORT,
   keys: {
-    public_key: process.env.PUBLIC_KEY,
-    private_key: process.env.PRIVATE_KEY
+    public_key: process.env.NEXT_PUBLIC_PUBLIC_KEY,
+    private_key: process.env.NEXT_PUBLIC_PRIVATE_KEY,
   },
   db: {
     url: process.env.DATABASE_URL?.split("?schema=")[0] || "",

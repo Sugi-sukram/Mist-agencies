@@ -16,7 +16,7 @@ const BestMineralWater = () => {
       title: "Mineral Content",
       description:
         "Each bottle is enriched with calcium, magnesium, sodium, and potassium. These vital minerals add numerous health benefits.",
-      positionClass: "top-[30%] left-10 text-left md:text-right", // Adjust for mobile
+      positionClass: "top-[35%] left-10 text-left md:text-right", // Adjust for mobile
       direction: "left", // Direction for left-side animation
     },
     {
@@ -40,7 +40,7 @@ const BestMineralWater = () => {
       title: "Certifications and Testing",
       description:
         "Our bottled water undergoes rigorous testing to meet national safety standards for consumers.",
-      positionClass: "top-[30%] right-10 text-left", // Adjust for mobile
+      positionClass: "top-[35%] right-10 text-left", // Adjust for mobile
       direction: "right",
     },
     {

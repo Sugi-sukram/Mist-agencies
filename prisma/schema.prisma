@@ -1,7 +1,6 @@
 generator client {
-  provider        = "prisma-client-js"
-  output          = "."
-  previewFeatures = ["omitApi"]
+  provider = "prisma-client-js"
+  output   = "."
 }
 
 datasource db {
@@ -24,21 +23,20 @@ enum unit {
 }
 
 model Admin {
-  id             String   @id @default(uuid())
+  id             String    @id @default(uuid())
   name           String?
-  email          String?  @unique
+  email          String?   @unique
   mobile         String?
   profileURL     String?
-  isActive       Boolean  @default(true)
-  isProductOwner Boolean  @default(false)
+  isActive       Boolean   @default(true)
+  isProductOwner Boolean   @default(false)
   address        String?
   pincode        String?
   password       String
-  city           String?  @default("Coimbatore")
-  state          String?  @default("Tamil Nadu")
-  country        String?  @default("India")
-  lastLogin      DateTime
-  image          String?
+  city           String?   @default("Coimbatore")
+  state          String?   @default("Tamil Nadu")
+  country        String?   @default("India")
+  lastLogin      DateTime?
 
   sessions Session[]
 
@@ -55,6 +53,7 @@ model Products {
   originalPrice Int
   discountPrice Int
   ImageUrl      String
+  description   String      @default("")
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
   feedback      Feedback[]

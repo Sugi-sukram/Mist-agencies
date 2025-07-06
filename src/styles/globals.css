@@ -1,6 +1,38 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+
+@theme {
+  --color-limeGreen: #94c244;
+  --color-bluecolor: #3a82d7;
+  --color-lightblueBG: #d6e4ef;
+  --color-drackBlue: #001055;
+  --color-textBlue: #3A82D7;
+  --color-titles: #082763;
+  --color-lightgreen: #94C245;
+  /* Custom spacing */
+  --spacing-8xl: 96rem;
+  --spacing-9xl: 128rem;
+  
+  /* Custom border radius */
+  --radius-4xl: 2rem;
+}
+
+/* Custom utilities if needed */
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(45deg, var(--color-limeGreen), var(--color-bluecolor));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .bg-gradient-radial {
+    background: radial-gradient(var(--tw-gradient-stops));
+  }
+  
+  .bg-gradient-conic {
+    background: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
+  }
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;

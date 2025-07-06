@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Table, Button, Modal, Popconfirm, message } from "antd";
-import ProductForm from "./form";
+import ProductForm from "./Form";
 import { Products } from "@/prisma/index";
 import axiosPrivate from "@/utils/axios";
 
@@ -46,7 +46,10 @@ const Page: React.FC = () => {
     try {
       if (editingProduct) {
         // Update product
-        await axiosPrivate.post(`/api/v1/products/${editingProduct.id}`, values);
+        await axiosPrivate.post(
+          `/api/v1/products/${editingProduct.id}`,
+          values
+        );
         message.success("Product updated successfully");
       } else {
         // Create new product
@@ -54,7 +57,7 @@ const Page: React.FC = () => {
         if (res && res.data) {
           message.success("Product added successfully");
           setIsModalVisible(false);
-          setEditingProduct(null)
+          setEditingProduct(null);
           getProducts(); // Refresh product list
         }
       }
@@ -135,7 +138,13 @@ const Page: React.FC = () => {
     <div className="p-4">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-bold">Products Management</h2>
-        <Button type="primary" onClick={() => showModal(null)}>
+        <Button
+          type="primary"
+          onClick={() => {
+            showModal(null);
+            setEditingProduct(null);
+          }}
+        >
           + Add Product
         </Button>
       </div>
