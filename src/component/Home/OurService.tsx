@@ -70,7 +70,7 @@ const OurService = () => {
           <div className="flex justify-between items-center w-full h-full gap-5">
             {/* Previous Button Animation */}
             <motion.div
-              className={`w-[40px] h-[40px] rounded-full font-bold justify-center cursor-pointer flex items-center rotate-[180deg] border-collapse text-white ${
+              className={`w-[40px] h-[40px] rounded-full font-bold justify-center cursor-pointer flex items-center rotate-180 border-collapse text-white ${
                 currentIndex <= 0 && "hidden"
               }`}
               onClick={handlePrevious}
@@ -119,7 +119,7 @@ const OurService = () => {
                       onClick={() => console.log("Service clicked")}
                       whileHover={{ scale: 1.05 }}
                     >
-                      <div className="justify-center items-center w-[100%]">
+                      <div className="justify-center items-center w-full">
                         <Image
                           src={e.img}
                           alt="service"

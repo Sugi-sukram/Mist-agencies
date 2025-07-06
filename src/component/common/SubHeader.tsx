@@ -19,7 +19,7 @@ const SubHeader: React.FC<Props> = ({ title }) => {
       {/* Motion component for title animation */}
       <motion.h2
         className="text-5xl pl-16 font-bold text-[#082763] text-left"
-        initial={{ opacity: 0, x: "40vw" }} // Start off-screen from the right side
+        initial={{ opacity: 0, x: 5 }}   // Start off-screen from the right side
         animate={{ opacity: 1, x: 0 }} // Animate to the left, staying left-aligned
         transition={{ duration: 2, ease: "easeOut" }} // Smooth animation
       >

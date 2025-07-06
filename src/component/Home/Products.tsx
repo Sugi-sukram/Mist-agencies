@@ -45,7 +45,7 @@ const Products: React.FC<any> = () => {
       <div className="flex justify-between items-center w-full h-full sm:gap-5 md:pl-16 md:pr-16">
         {/* Previous Button */}
         <motion.div
-          className={`w-[30px] h-[30px] rounded-full font-bold justify-center flex items-center rotate-[180deg] border-[1px] border-black ${
+          className={`w-[30px] h-[30px] rounded-full font-bold justify-center flex items-center rotate-180 border border-black ${
             currentIndex <= 0 && "hidden"
           }`}
           onClick={handlePrevious}
@@ -87,7 +87,7 @@ const Products: React.FC<any> = () => {
                   }}
                   onClick={() => console.log("Product clicked")}
                 >
-                  <div className="justify-center items-center w-[100%]">
+                  <div className="justify-center items-center w-full">
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
@@ -129,7 +129,7 @@ const Products: React.FC<any> = () => {
 
         {/* Next Button */}
         <motion.div
-          className={`w-[30px] h-[30px] rounded-full font-bold justify-center flex items-center cursor-pointer border-[1px] border-black ${
+          className={`w-[30px] h-[30px] rounded-full font-bold justify-center flex items-center cursor-pointer border border-black ${
             currentIndex + totalWidth - 1 >= productscard.length - 1 &&
             "hidden"
           }`}

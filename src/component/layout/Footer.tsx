@@ -71,7 +71,7 @@ const Footer = () => {
 
       {/* Navigation Links */}
       <motion.div
-        className="container flex justify-end items-start gap-10 text-2xl w-[100%]"
+        className="container flex justify-end items-start gap-10 text-2xl w-full"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.3 }}

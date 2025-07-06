@@ -48,7 +48,7 @@ function ProductCard({ product }: props) {
       </div>
 
       <div className="mt-4">
-        <Button className="!text-lg px-10 bg-lightgreen text-white rounded-md">
+        <Button className="text-lg! px-10 bg-lightgreen text-white rounded-md">
           BUY NOW
         </Button>
       </div>

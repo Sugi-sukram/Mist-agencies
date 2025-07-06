@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { ConfigProvider } from "antd";
-import Head from "next/head";
+// import Head from "next/head";
+import '@ant-design/v5-patch-for-react-19';
 import theme from "@/theme/theme";
 import Appicon from "@/assets/appIcon.png";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "MIST AGENCIES - Premium Mineral Water",
@@ -57,11 +58,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
+      {/* <head>
         <title>Mist Agencies</title>
         <meta name="description" content="Mineral water with great quality" />
         <link rel="icon" href="/favicon.ico" />
-      </Head>
+      </head> */}
       <body>
         <ConfigProvider theme={theme.dark}>{children}</ConfigProvider>
       </body>
