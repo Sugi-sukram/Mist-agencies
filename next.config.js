@@ -1,8 +1,5 @@
-// next.config.js
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    //  domains: ["mistagencies.com", "encrypted-tbn1.gstatic.com","doted-dev.s3.ap-southeast-1.amazonaws.com",'http://172.26.16.1:3000'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -19,6 +16,15 @@ const nextConfig = {
     if (!isServer) {
       config.resolve.fallback = { fs: false };
     }
+
+    // ✅ Ignore Windows protected folder scan errors
+    config.ignoreWarnings = [
+      (warn) =>
+        typeof warn.message === 'string' &&
+        warn.message.includes('EPERM') &&
+        warn.message.includes('Application Data')
+    ];
+
     return config;
   },
 };

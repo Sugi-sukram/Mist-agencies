@@ -1,2 +1,2 @@
--- AlterTable
-ALTER TABLE "Admin" ALTER COLUMN "lastLogin" DROP NOT NULL;
+ALTER TABLE `Admin`
+MODIFY COLUMN `lastLogin` TIMESTAMP(3) NULL;

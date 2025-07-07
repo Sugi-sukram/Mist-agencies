@@ -5,4 +5,4 @@
 
 */
 -- AlterTable
-ALTER TABLE "Admin" DROP COLUMN "image";
+ALTER TABLE `Admin` DROP COLUMN `image`;

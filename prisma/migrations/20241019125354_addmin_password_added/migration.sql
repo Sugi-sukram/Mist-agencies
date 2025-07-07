@@ -6,7 +6,7 @@
 
 */
 -- AlterTable
-ALTER TABLE "Admin" ADD COLUMN     "password" TEXT NOT NULL;
+ALTER TABLE `Admin` ADD COLUMN `password` VARCHAR(191) NOT NULL;
 
 -- AlterTable
-ALTER TABLE "Products" ADD COLUMN     "ImageUrl" TEXT NOT NULL;
+ALTER TABLE `Products` ADD COLUMN `ImageUrl` VARCHAR(191) NOT NULL;

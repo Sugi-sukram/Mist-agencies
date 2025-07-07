@@ -204,14 +204,65 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
-exports.Prisma.QueryMode = {
-  default: 'default',
-  insensitive: 'insensitive'
-};
-
 exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
+};
+
+exports.Prisma.AdminOrderByRelevanceFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  mobile: 'mobile',
+  profileURL: 'profileURL',
+  address: 'address',
+  pincode: 'pincode',
+  password: 'password',
+  city: 'city',
+  state: 'state',
+  country: 'country'
+};
+
+exports.Prisma.ProductsOrderByRelevanceFieldEnum = {
+  id: 'id',
+  name: 'name',
+  ImageUrl: 'ImageUrl',
+  description: 'description'
+};
+
+exports.Prisma.OrdersOrderByRelevanceFieldEnum = {
+  id: 'id',
+  orderId: 'orderId'
+};
+
+exports.Prisma.OrderItemOrderByRelevanceFieldEnum = {
+  id: 'id',
+  orderId: 'orderId',
+  productId: 'productId'
+};
+
+exports.Prisma.ContactRequestsOrderByRelevanceFieldEnum = {
+  id: 'id',
+  name: 'name',
+  mobile: 'mobile',
+  email: 'email',
+  packingType: 'packingType',
+  units: 'units',
+  Venue: 'Venue',
+  address: 'address'
+};
+
+exports.Prisma.SessionOrderByRelevanceFieldEnum = {
+  id: 'id',
+  sessionToken: 'sessionToken',
+  userId: 'userId'
+};
+
+exports.Prisma.FeedbackOrderByRelevanceFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  feedback: 'feedback',
+  productId: 'productId'
 };
 exports.unit = exports.$Enums.unit = {
   KG: 'KG',

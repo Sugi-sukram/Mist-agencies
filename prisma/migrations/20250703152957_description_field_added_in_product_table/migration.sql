@@ -1,2 +1,2 @@
 -- AlterTable
-ALTER TABLE "Products" ADD COLUMN     "description" TEXT NOT NULL DEFAULT '';
+ALTER TABLE `Products` ADD COLUMN `description` VARCHAR(191) NOT NULL DEFAULT '';
