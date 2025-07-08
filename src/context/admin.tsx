@@ -1,6 +1,6 @@
 "use client";
+import { Admin } from "@prisma/client";
 import React, { createContext, useEffect, useState } from "react";
-import { Admin } from "../../prisma";
 
 type Props = {
   admin: Admin | undefined;

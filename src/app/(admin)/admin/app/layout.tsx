@@ -16,7 +16,7 @@ import { MdArrowForwardIos } from "react-icons/md";
 import axiosPrivate from "@/utils/axios";
 import Cookies from "universal-cookie";
 import useMediaQuery from "@/component/hooks/UseMediaHook";
-import { Admin } from "@/prisma/index";
+import { Admin } from "@prisma/client";
 
 const { Sider } = Layout;
 

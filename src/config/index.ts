@@ -1,11 +1,12 @@
 import { config } from "dotenv";
-let verify_env = config();
+
+const verify_env = config();
 
 if (verify_env.error) {
   throw new Error("Env File Not Found");
 }
 
-export default {
+const appConfig = {
   host: process.env.HOST,
   port: process.env.PORT,
   keys: {
@@ -20,3 +21,5 @@ export default {
     salt: Number(process.env.SALTROUND),
   },
 };
+
+export default appConfig;

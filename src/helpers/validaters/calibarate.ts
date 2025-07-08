@@ -1,4 +1,5 @@
-import { unit } from "@/prisma/index";
+
+import { unit } from "@prisma/client";
 import { celebrate, Joi } from "celebrate";
 
 export const loginValidater = celebrate({

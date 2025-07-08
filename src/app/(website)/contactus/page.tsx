@@ -4,7 +4,7 @@ import ContactForm from "@/component/ContactUs/Contact";
 import MapComponent from "@/component/MapComponent";
 import React, { useEffect, useState } from "react";
 
-function page() {
+function Page() {
   const [isDevice, setIsDevice] = useState<boolean>(true);
 
   useEffect(() => {
@@ -31,4 +31,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

@@ -1,5 +1,5 @@
 // src/loaders/prisma.ts
-import { PrismaClient } from "../../prisma";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 

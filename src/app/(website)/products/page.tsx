@@ -6,7 +6,7 @@ import SubHeader from "@/component/common/SubHeader";
 
 import React, { useEffect, useState } from "react";
 import axiosPrivate from "@/utils/axios";
-import { Products } from "@/prisma/index";
+import { Products } from "@prisma/client";
 import { message } from "antd";
 
 function Page() {
