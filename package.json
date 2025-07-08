@@ -7,7 +7,7 @@
     "migrate": "npx prisma migrate dev --schema=prisma/schema.prisma",
     "generate": "npx prisma generate --schema=prisma/schema.prisma",
     "dev": "npm install && npm run generate && next dev",
-    "seed": "npx ts-node  ./prisma/seed.ts",
+    "seed": "node --loader ts-node/esm prisma/seed.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -51,6 +51,7 @@
     "postcss-loader": "^8.1.1",
     "prisma": "^6.11.1",
     "tailwindcss": "^4.1.11",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }

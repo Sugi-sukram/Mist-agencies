@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { Table, Button, Modal, Popconfirm, message } from "antd";
 import ProductForm from "./Form";
-import { Products } from "@/prisma/index";
 import axiosPrivate from "@/utils/axios";
+import { Products } from "@prisma/client";
 
 const Page: React.FC = () => {
   const [products, setProducts] = useState<Products[]>([]);

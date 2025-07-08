@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Table, Button, Modal, Popconfirm, message } from "antd";
-import { Admin as Users } from "@/prisma/index";
+import { Admin as Users } from "@prisma/client";
 import axiosPrivate from "@/utils/axios";
 import UserForm from "./UserForm";
 
@@ -52,7 +52,9 @@ const UserPage: React.FC = () => {
         res = await axiosPrivate.post(`/api/v1/user`, values);
       }
       if (res && res.data) {
-        message.success(editingUser ? "User updated successfully" : "User added successfully");
+        message.success(
+          editingUser ? "User updated successfully" : "User added successfully"
+        );
         setIsModalVisible(false);
         setEditingUser(null);
         getUsers(); // Refresh user list

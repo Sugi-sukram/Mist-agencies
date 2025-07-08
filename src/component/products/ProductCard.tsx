@@ -1,6 +1,6 @@
 import Image from "next/image"; // Import Next.js Image component
 import { Card } from "antd";
-import { Products } from "@/prisma/index";
+import { Products } from "@prisma/client";
 // import React from "react";
 interface props {
   // product: IProduct;

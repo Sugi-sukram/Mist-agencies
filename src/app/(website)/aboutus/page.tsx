@@ -4,7 +4,7 @@ import AboutSection from "@/component/AboutUs/AboutSection";
 import SubHeader from "@/component/common/SubHeader";
 import React, { useEffect, useState } from "react";
 
-function page() {
+function Page() {
   const [isDevice, setIsDevice] = useState<boolean>(true);
 
   useEffect(() => {
@@ -31,4 +31,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
