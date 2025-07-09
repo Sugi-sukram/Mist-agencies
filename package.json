@@ -8,7 +8,7 @@
     "generate": "npx prisma generate --schema=prisma/schema.prisma",
     "dev": "npm install && npm run generate && next dev",
     "seed": "node --loader ts-node/esm prisma/seed.ts",
-    "build": "next build",
+    "build": "npm run generate &&  npm run seed && next build",
     "start": "next start",
     "lint": "next lint"
   },
